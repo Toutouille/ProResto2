@@ -35,6 +35,8 @@
                 android:layout_gravity="center_vertical"
                 android:layout_marginTop="45dp"
                 android:layout_marginBottom="45dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
                 android:clickable="true" style="ButtonPressed">
 
                 <ImageView
@@ -45,8 +47,6 @@
                     android:background="@null"
                     android:contentDescription="@string/imageButtonBookDescription"
                     android:layout_weight="0.50"
-                    android:layout_marginRight="35dp"
-                    android:layout_marginLeft="35dp"
                     android:layout_gravity="center"/>
 
 
@@ -70,6 +70,8 @@
                 android:layout_gravity="center_vertical"
                 android:layout_marginTop="45dp"
                 android:layout_marginBottom="45dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
                 android:clickable="true">
 
                 <ImageView
@@ -80,9 +82,7 @@
                     android:src="@drawable/ic_order"
                     android:background="@null"
                     android:contentDescription="@string/imageButtonOrderDescription"
-                    android:layout_weight="0.50"
-                    android:layout_marginLeft="35dp"
-                    android:layout_marginRight="35dp"/>
+                    android:layout_weight="0.50"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -114,6 +114,8 @@
                 android:baselineAligned="false"
                 android:layout_marginTop="45dp"
                 android:layout_marginBottom="45dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
                 android:clickable="true">
 
                 <ImageView
@@ -124,9 +126,7 @@
                     android:layout_gravity="center"
                     android:background="@null"
                     android:contentDescription="@string/imageButtonMapDescription"
-                    android:layout_weight="0.50"
-                    android:layout_marginRight="35dp"
-                    android:layout_marginLeft="35dp"/>
+                    android:layout_weight="0.50"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -147,6 +147,8 @@
                 android:layout_weight="0.50"
                 android:layout_marginTop="45dp"
                 android:layout_marginBottom="45dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
                 android:clickable="true">
 
                 <ImageView
@@ -157,9 +159,7 @@
                     android:src="@drawable/ic_profile"
                     android:background="@null"
                     android:contentDescription="@string/imageButtonProfileDescription"
-                    android:layout_weight="0.50"
-                    android:layout_marginLeft="35dp"
-                    android:layout_marginRight="35dp"/>
+                    android:layout_weight="0.50"/>
 
                 <TextView
                     android:layout_width="wrap_content"

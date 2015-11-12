@@ -1,13 +1,17 @@
 <resources>
 
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <item name="colorPrimary">@color/ColorHome</item>
-        <item name="colorPrimaryDark">@color/ColorHomeDark</item>
+    <style name="AppTheme" parent="android:Theme.Holo.Light">
+        <item name="android:actionOverflowButtonStyle">@style/MyActionButtonOverflow</item>
     </style>
 
     <style name="TextButtonActivityStyle">
         <item name="android:textColor">@color/ColorTextButtonActivity</item>
         <item name="android:textSize">@dimen/DimTextButtonActivity</item>
+    </style>
+
+    <style name="MyActionButtonOverflow" parent="android:style/Widget.Holo.Light.ActionButton.Overflow">
+        <item name="android:background">?android:attr/actionBarItemBackground</item>
+        <item name="android:contentDescription">"Lala"</item>
     </style>
 
 </resources>

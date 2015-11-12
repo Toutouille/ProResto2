@@ -2,8 +2,11 @@
       xmlns:app="http://schemas.android.com/apk/res-auto"
       xmlns:tools="http://schemas.android.com/tools"
       tools:context=".Home">
+
+    <!-- Unused item : the AppTheme style can't display it -->
     <item android:id="@+id/action_settings"
           android:title="@string/action_settings"
-          android:orderInCategory="100"
+          android:icon="@android:drawable/ic_menu_crop"
           app:showAsAction="never"/>
+
 </menu>

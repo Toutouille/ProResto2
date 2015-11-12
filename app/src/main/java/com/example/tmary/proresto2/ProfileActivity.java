@@ -1,14 +1,14 @@
 package com.example.tmary.proresto2;
 
+import android.app.Activity;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
 /**
  * Created by tmary on 12/11/15.
  */
-public class ProfileActivity extends AppCompatActivity {
+public class ProfileActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
