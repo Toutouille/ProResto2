@@ -6,6 +6,7 @@
                 android:paddingRight="@dimen/activity_horizontal_margin"
                 android:paddingTop="@dimen/activity_vertical_margin"
                 android:paddingBottom="@dimen/activity_vertical_margin"
+                android:background="@drawable/dessert"
                 tools:context=".Home">
 
     <LinearLayout
@@ -32,7 +33,8 @@
                 android:layout_height="match_parent"
                 android:layout_weight="0.50"
                 android:layout_gravity="center_vertical"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="45dp"
+                android:layout_marginBottom="45dp"
                 android:clickable="true" style="ButtonPressed">
 
                 <ImageView
@@ -43,8 +45,8 @@
                     android:background="@null"
                     android:contentDescription="@string/imageButtonBookDescription"
                     android:layout_weight="0.50"
-                    android:layout_marginRight="5dp"
-                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="35dp"
+                    android:layout_marginLeft="35dp"
                     android:layout_gravity="center"/>
 
 
@@ -66,7 +68,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0.50"
                 android:layout_gravity="center_vertical"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="45dp"
+                android:layout_marginBottom="45dp"
                 android:clickable="true">
 
                 <ImageView
@@ -78,8 +81,8 @@
                     android:background="@null"
                     android:contentDescription="@string/imageButtonOrderDescription"
                     android:layout_weight="0.50"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"/>
+                    android:layout_marginLeft="35dp"
+                    android:layout_marginRight="35dp"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -109,7 +112,8 @@
                 android:layout_gravity="center_vertical"
                 android:layout_weight="0.50"
                 android:baselineAligned="false"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="45dp"
+                android:layout_marginBottom="45dp"
                 android:clickable="true">
 
                 <ImageView
@@ -121,8 +125,8 @@
                     android:background="@null"
                     android:contentDescription="@string/imageButtonMapDescription"
                     android:layout_weight="0.50"
-                    android:layout_marginRight="5dp"
-                    android:layout_marginLeft="5dp"/>
+                    android:layout_marginRight="35dp"
+                    android:layout_marginLeft="35dp"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -141,7 +145,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_weight="0.50"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="45dp"
+                android:layout_marginBottom="45dp"
                 android:clickable="true">
 
                 <ImageView
@@ -153,8 +158,8 @@
                     android:background="@null"
                     android:contentDescription="@string/imageButtonProfileDescription"
                     android:layout_weight="0.50"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"/>
+                    android:layout_marginLeft="35dp"
+                    android:layout_marginRight="35dp"/>
 
                 <TextView
                     android:layout_width="wrap_content"
