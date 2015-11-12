@@ -1,0 +1,13 @@
+<resources>
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/ColorHome</item>
+        <item name="colorPrimaryDark">@color/ColorHomeDark</item>
+    </style>
+
+    <style name="TextButtonActivityStyle">
+        <item name="android:textColor">@color/ColorTextButtonActivity</item>
+        <item name="android:textSize">@dimen/DimTextButtonActivity</item>
+    </style>
+
+</resources>

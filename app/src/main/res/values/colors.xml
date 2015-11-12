@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="ColorHome">#ED746F</color>
+    <color name="ColorHomeDark">#d15648</color>
+
+    <color name="ColorTextButtonActivity">#000000</color>
+
+</resources>
