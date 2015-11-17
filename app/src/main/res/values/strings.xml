@@ -18,4 +18,5 @@
     <string name="imageButtonOrderDescription">Icon calling the Order activity</string>
     <string name="imageButtonMapDescription">Icon calling the Map activity</string>
     <string name="imageButtonProfileDescription">Icon calling the Profile activity</string>
+    <string name="title_activity_maps">MapsActivity</string>
 </resources>

@@ -42,7 +42,7 @@ public class Home extends Activity {
             @Override
             public void onClick(View view) {
                 // START MAP ACTIVITY
-                Intent intent = new Intent(Home.this, MapActivity.class);
+                Intent intent = new Intent(Home.this, MapsActivity.class);
                 startActivity(intent);
             }
         });
