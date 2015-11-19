@@ -19,6 +19,7 @@ public class Home extends Activity {
         final LinearLayout LayoutOrderClick = (LinearLayout) findViewById(R.id.LayoutOrder);
         final LinearLayout LayoutMapClick = (LinearLayout) findViewById(R.id.LayoutMap);
         final LinearLayout LayoutProfileClick = (LinearLayout) findViewById(R.id.LayoutProfile);
+        final LinearLayout LayoutSettingsClick = (LinearLayout) findViewById(R.id.action_settings);
 
         LayoutBookClick.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,10 +52,19 @@ public class Home extends Activity {
             @Override
             public void onClick(View view) {
                 // START PROFILE ACTIVITY
-                Intent intent = new Intent(Home.this, ProfileActivity.class);
+                Intent intent = new Intent(Home.this, SettingsActivity.class);
                 startActivity(intent);
             }
         });
+
+        /*LayoutSettingsClick.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // START SETTINGS ACTIVITY
+                Intent intent = new Intent(Home.this, ProfileActivity.class);
+                startActivity(intent);
+            }
+        });*/
 
     }
 
