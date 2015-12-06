@@ -26,7 +26,39 @@
             android:layout_weight="0.5">
 
             <LinearLayout
-                android:id="@+id/LayoutBook"
+                android:id="@+id/LayoutResto"
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="0.50"
+                android:clickable="true"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textButtonResto"
+                    android:text="@string/text_button_resto"
+                    android:textAppearance="@style/TextButtonActivityStyle"
+                    android:layout_gravity="center_horizontal" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:id="@+id/imageButtonResto"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_resto"
+                    android:background="@null"
+                    android:contentDescription="@string/imageButtonRestoDescription"
+                    android:layout_weight="0.50"
+                    android:adjustViewBounds="true" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/LayoutMap"
                 android:orientation="vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -40,51 +72,19 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/textButtonBook"
-                    android:text="@string/text_button_book"
-                    android:layout_gravity="center"
+                    android:id="@+id/textButtonMap"
+                    android:text="@string/text_button_map"
+                    android:layout_gravity="center_horizontal"
                     android:textAppearance="@style/TextButtonActivityStyle"/>
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
-                    android:id="@+id/imageButtonBook"
-                    android:src="@drawable/ic_calendar"
+                    android:id="@+id/imageButtonMap"
+                    android:src="@drawable/ic_map"
                     android:layout_gravity="center"
                     android:background="@null"
-                    android:contentDescription="@string/imageButtonBookDescription"
-                    android:layout_weight="0.50"
-                    android:adjustViewBounds="true" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/LayoutOrder"
-                android:orientation="vertical"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_gravity="center_vertical"
-                android:layout_weight="0.50"
-                android:clickable="true"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/textButtonOrder"
-                    android:text="@string/text_button_order"
-                    android:textAppearance="@style/TextButtonActivityStyle"
-                    android:layout_gravity="center|top" />
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="0dp"
-                    android:id="@+id/imageButtonOrder"
-                    android:layout_gravity="center"
-                    android:src="@drawable/ic_order"
-                    android:background="@null"
-                    android:contentDescription="@string/imageButtonOrderDescription"
+                    android:contentDescription="@string/imageButtonMapDescription"
                     android:layout_weight="0.50"
                     android:adjustViewBounds="true" />
 
@@ -100,7 +100,7 @@
             android:layout_weight="0.5">
 
             <LinearLayout
-                android:id="@+id/LayoutMap"
+                android:id="@+id/LayoutBook"
                 android:orientation="vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -114,26 +114,26 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
-                    android:id="@+id/imageButtonMap"
-                    android:src="@drawable/ic_map"
+                    android:id="@+id/imageButtonBook"
+                    android:src="@drawable/ic_calendar"
                     android:layout_gravity="center"
                     android:background="@null"
-                    android:contentDescription="@string/imageButtonMapDescription"
+                    android:contentDescription="@string/imageButtonBookDescription"
                     android:layout_weight="0.50"
                     android:adjustViewBounds="true" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/textButtonMap"
-                    android:text="@string/text_button_map"
-                    android:layout_gravity="center"
+                    android:id="@+id/textButtonBook"
+                    android:text="@string/text_button_book"
+                    android:layout_gravity="center_horizontal"
                     android:textAppearance="@style/TextButtonActivityStyle"/>
 
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/LayoutResto"
+                android:id="@+id/LayoutOrder"
                 android:orientation="vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -146,21 +146,21 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
-                    android:id="@+id/imageButtonResto"
+                    android:id="@+id/imageButtonOrder"
                     android:layout_gravity="center"
-                    android:src="@drawable/ic_resto"
+                    android:src="@drawable/ic_order"
                     android:background="@null"
-                    android:contentDescription="@string/imageButtonRestoDescription"
+                    android:contentDescription="@string/imageButtonOrderDescription"
                     android:layout_weight="0.50"
                     android:adjustViewBounds="true" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/textButtonResto"
-                    android:text="@string/text_button_resto"
+                    android:id="@+id/textButtonOrder"
+                    android:text="@string/text_button_order"
                     android:textAppearance="@style/TextButtonActivityStyle"
-                    android:layout_gravity="center|top" />
+                    android:layout_gravity="center_horizontal" />
 
             </LinearLayout>
         </LinearLayout>
