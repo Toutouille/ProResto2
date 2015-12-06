@@ -10,7 +10,7 @@
     <string name="title_activity_map">Find restaurants</string>
     <string name="title_activity_maps">Find restaurants on the map</string>
     <string name="title_activity_profile">Configure your profile</string>
-    <string name="title_activity_resto">Liste des Restaurants</string>
+    <string name="title_activity_resto">List of Restaurants</string>
 
     <string name="text_button_book">Book</string>
     <string name="text_button_order">Order</string>
