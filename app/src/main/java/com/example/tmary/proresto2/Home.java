@@ -1,5 +1,6 @@
 package com.example.tmary.proresto2;
 
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,7 +19,8 @@ public class Home extends Activity {
         final LinearLayout LayoutBookClick = (LinearLayout) findViewById(R.id.LayoutBook);
         final LinearLayout LayoutOrderClick = (LinearLayout) findViewById(R.id.LayoutOrder);
         final LinearLayout LayoutMapClick = (LinearLayout) findViewById(R.id.LayoutMap);
-        final LinearLayout LayoutProfileClick = (LinearLayout) findViewById(R.id.LayoutProfile);
+        final LinearLayout LayoutProfileClick = (LinearLayout) findViewById(R.id.LayoutResto);
+        final LinearLayout LayoutRestoClick = (LinearLayout) findViewById(R.id.LayoutResto);
         final LinearLayout LayoutSettingsClick = (LinearLayout) findViewById(R.id.action_settings);
 
         LayoutBookClick.setOnClickListener(new View.OnClickListener() {
@@ -57,11 +59,21 @@ public class Home extends Activity {
             }
         });
 
+        LayoutRestoClick.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // START RESTO ACTIVITY
+                Intent intent = new Intent(Home.this, RestoActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        //TODO: Solve the calling of the settings activity
         /*LayoutSettingsClick.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // START SETTINGS ACTIVITY
-                Intent intent = new Intent(Home.this, ProfileActivity.class);
+                Intent intent = new Intent(Home.this, SettingsActivity.class);
                 startActivity(intent);
             }
         });*/

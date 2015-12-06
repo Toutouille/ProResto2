@@ -7,48 +7,35 @@
                 android:paddingTop="@dimen/activity_vertical_margin"
                 android:paddingBottom="@dimen/activity_vertical_margin"
 
-                tools:context=".Home">
+                tools:context=".Home"
+    android:background="@drawable/ic_font">
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:weightSum="1">
+        android:weightSum="1"
+        android:layout_centerInParent="true">
 
         <LinearLayout
             android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
             android:layout_gravity="center_horizontal"
-            android:layout_weight="0.50"
-            android:weightSum="1"
-            android:baselineAligned="true">
+            android:baselineAligned="false"
+            android:layout_weight="0.5">
 
             <LinearLayout
                 android:id="@+id/LayoutBook"
                 android:orientation="vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="0.50"
                 android:layout_gravity="center_vertical"
-                android:layout_marginTop="45dp"
-                android:layout_marginBottom="45dp"
-                android:layout_marginLeft="25dp"
-                android:layout_marginRight="25dp"
-                android:clickable="true" style="ButtonPressed">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="0dp"
-                    android:id="@+id/imageButtonBook"
-                    android:src="@drawable/ic_calendar"
-                    android:background="@null"
-                    android:contentDescription="@string/imageButtonBookDescription"
-                    android:layout_weight="0.50"
-                    android:layout_gravity="center"/>
-
+                android:layout_weight="0.50"
+                android:baselineAligned="false"
+                android:clickable="true"
+                android:layout_marginRight="30dp"
+                android:layout_marginLeft="30dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -58,6 +45,16 @@
                     android:layout_gravity="center"
                     android:textAppearance="@style/TextButtonActivityStyle"/>
 
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:id="@+id/imageButtonBook"
+                    android:src="@drawable/ic_calendar"
+                    android:layout_gravity="center"
+                    android:background="@null"
+                    android:contentDescription="@string/imageButtonBookDescription"
+                    android:layout_weight="0.50"
+                    android:adjustViewBounds="true" />
 
             </LinearLayout>
 
@@ -65,14 +62,20 @@
                 android:id="@+id/LayoutOrder"
                 android:orientation="vertical"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.50"
+                android:layout_height="match_parent"
                 android:layout_gravity="center_vertical"
-                android:layout_marginTop="45dp"
-                android:layout_marginBottom="45dp"
-                android:layout_marginLeft="25dp"
-                android:layout_marginRight="25dp"
-                android:clickable="true">
+                android:layout_weight="0.50"
+                android:clickable="true"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textButtonOrder"
+                    android:text="@string/text_button_order"
+                    android:textAppearance="@style/TextButtonActivityStyle"
+                    android:layout_gravity="center|top" />
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -82,41 +85,31 @@
                     android:src="@drawable/ic_order"
                     android:background="@null"
                     android:contentDescription="@string/imageButtonOrderDescription"
-                    android:layout_weight="0.50"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/textButtonOrder"
-                    android:text="@string/text_button_order"
-                    android:layout_gravity="center"
-                    android:textAppearance="@style/TextButtonActivityStyle"/>
+                    android:layout_weight="0.50"
+                    android:adjustViewBounds="true" />
 
             </LinearLayout>
         </LinearLayout>
 
         <LinearLayout
             android:orientation="horizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
             android:layout_gravity="center_horizontal"
-            android:layout_weight="0.50"
-            android:weightSum="1"
-            android:baselineAligned="true">
+            android:baselineAligned="false"
+            android:layout_weight="0.5">
 
             <LinearLayout
                 android:id="@+id/LayoutMap"
                 android:orientation="vertical"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_gravity="center_vertical"
                 android:layout_weight="0.50"
                 android:baselineAligned="false"
-                android:layout_marginTop="45dp"
-                android:layout_marginBottom="45dp"
-                android:layout_marginLeft="25dp"
-                android:layout_marginRight="25dp"
-                android:clickable="true">
+                android:clickable="true"
+                android:layout_marginRight="30dp"
+                android:layout_marginLeft="30dp">
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -126,7 +119,8 @@
                     android:layout_gravity="center"
                     android:background="@null"
                     android:contentDescription="@string/imageButtonMapDescription"
-                    android:layout_weight="0.50"/>
+                    android:layout_weight="0.50"
+                    android:adjustViewBounds="true" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -139,35 +133,34 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/LayoutProfile"
+                android:id="@+id/LayoutResto"
                 android:orientation="vertical"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_gravity="center_vertical"
                 android:layout_weight="0.50"
-                android:layout_marginTop="45dp"
-                android:layout_marginBottom="45dp"
-                android:layout_marginLeft="25dp"
-                android:layout_marginRight="25dp"
-                android:clickable="true">
+                android:clickable="true"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp">
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
-                    android:id="@+id/imageButtonSettings"
+                    android:id="@+id/imageButtonResto"
                     android:layout_gravity="center"
-                    android:src="@drawable/ic_profile"
+                    android:src="@drawable/ic_resto"
                     android:background="@null"
-                    android:contentDescription="@string/imageButtonProfileDescription"
-                    android:layout_weight="0.50"/>
+                    android:contentDescription="@string/imageButtonRestoDescription"
+                    android:layout_weight="0.50"
+                    android:adjustViewBounds="true" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/textButtonProfile"
-                    android:text="@string/text_button_profile"
-                    android:layout_gravity="center"
-                    android:textAppearance="@style/TextButtonActivityStyle"/>
+                    android:id="@+id/textButtonResto"
+                    android:text="@string/text_button_resto"
+                    android:textAppearance="@style/TextButtonActivityStyle"
+                    android:layout_gravity="center|top" />
 
             </LinearLayout>
         </LinearLayout>

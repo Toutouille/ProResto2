@@ -117,8 +117,10 @@ public class MapsActivity extends FragmentActivity
 
     @Override
     public void onInfoWindowClick(Marker clicked_marker) {
-        Toast.makeText(this, "Restaurant selected", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Restaurant " + clicked_marker.getTitle()+" selected ", Toast.LENGTH_SHORT).show();
+        
         //TODO: When the info windows is clicked, select the restaurant and propose more information to view. May be from the database
+
     }
 
 }
