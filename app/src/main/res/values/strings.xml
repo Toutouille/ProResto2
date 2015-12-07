@@ -5,6 +5,8 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
 
+
+    <!--    Activities Name    -->
     <string name="title_activity_book">Book a restaurant</string>
     <string name="title_activity_order">Order food</string>
     <string name="title_activity_map">Find restaurants</string>
@@ -23,6 +25,13 @@
     <string name="imageButtonMapDescription">Icon calling the Map activity</string>
     <string name="imageButtonProfileDescription">Icon calling the Profile activity</string>
     <string name="imageButtonRestoDescription">Icon calling the Resto activity</string>
+
+
+    <!--    List of Restaurants    -->
+    <string name="title_resto_dollys">Dolly's</string>
+    <string name="title_resto_atelier_burger">L'atelier du burger</string>
+    <string name="title_resto_rua">Universitaire</string>
+
 
     <!--    Permissions    -->
     <string name="permission_rationale_location">Access to the location service is required to demonstrate the \'my location\' feature, which shows your current location on the map.</string>

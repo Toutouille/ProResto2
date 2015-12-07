@@ -1,5 +1,7 @@
 package com.example.tmary.proresto2;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.widget.Toast;
@@ -77,15 +79,15 @@ public class MapsActivity extends FragmentActivity
         Marker HAMBURGER_marker = mMap.addMarker(new MarkerOptions()
                 .position(HAMBURGER)
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN))
-                .title("L'atelier du burger"));
+                .title(getString(R.string.title_resto_atelier_burger)));
         Marker DOLLY_marker = mMap.addMarker(new MarkerOptions()
                 .position(DOLLY)
-                .title("Dolly's")
+                .title(getString(R.string.title_resto_dollys))
                 .snippet("Dolly's is cool")
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
         Marker RUA_marker = mMap.addMarker(new MarkerOptions()
                 .position(RUA)
-                .title("Restaurant Universitaire")
+                .title(getString(R.string.title_resto_rua))
                 .snippet("Côte de Nacre")
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ORANGE)));
 
@@ -117,10 +119,20 @@ public class MapsActivity extends FragmentActivity
 
     @Override
     public void onInfoWindowClick(Marker clicked_marker) {
-        Toast.makeText(this, "Restaurant " + clicked_marker.getTitle()+" selected ", Toast.LENGTH_SHORT).show();
-        
+        Toast.makeText(this, "Restaurant " + clicked_marker.getTitle() + " selected ", Toast.LENGTH_SHORT).show();
+        //On créé un objet Bundle, c'est ce qui va nous permetre d'envoyer des données à l'autre Activity
+        Bundle objetbunble = new Bundle();
+        //Cela fonctionne plus ou moins comme une HashMap, on entre une clef et sa valeur en face
+        objetbunble.putString("resto_choisi", clicked_marker.getTitle());
+        Intent intent = new Intent(MapsActivity.this, RestoActivity.class);
+        //On affecte à l'Intent le Bundle que l'on a créé
+        intent.putExtras(objetbunble);
+
+        startActivity(intent);
         //TODO: When the info windows is clicked, select the restaurant and propose more information to view. May be from the database
 
     }
+
+
 
 }
