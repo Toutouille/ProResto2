@@ -75,22 +75,22 @@ public class MapsActivity extends FragmentActivity
         // Zoom (level 14) to Caen
         mMap.animateCamera(CameraUpdateFactory.zoomTo(14), 2000, null);
 
-        // Add some restaurants
-        Marker HAMBURGER_marker = mMap.addMarker(new MarkerOptions()
-                .position(HAMBURGER)
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN))
-                .title(getString(R.string.title_resto_atelier_burger)));
+        // Restaurants Markers
         Marker DOLLY_marker = mMap.addMarker(new MarkerOptions()
                 .position(DOLLY)
                 .title(getString(R.string.title_resto_dollys))
-                .snippet("Dolly's is cool")
+                .snippet(getString(R.string.snipet_resto_dollys))
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
         Marker RUA_marker = mMap.addMarker(new MarkerOptions()
                 .position(RUA)
                 .title(getString(R.string.title_resto_rua))
-                .snippet("Côte de Nacre")
+                .snippet(getString(R.string.snipet_resto_rua))
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ORANGE)));
-
+        Marker HAMBURGER_marker = mMap.addMarker(new MarkerOptions()
+                .position(HAMBURGER)
+                .title(getString(R.string.title_resto_atelier_burger))
+                .snippet(getString(R.string.snipet_resto_atelier_burger))
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
 
         // Activate geolocalisation
         mMap.setOnMyLocationButtonClickListener(this);

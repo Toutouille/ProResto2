@@ -21,7 +21,7 @@ import android.widget.TextView;
 public class RestoActivity extends Activity {
 
 
-    private String resto_choisi;
+    private static String resto_choisi;
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -50,16 +50,22 @@ public class RestoActivity extends Activity {
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
-        //On récupère l'objet Bundle envoyé par l'autre Activity
-        Bundle objetbunble  = this.getIntent().getExtras();
 
+        /*
         //On récupère les données du Bundle
-        if (objetbunble != null && objetbunble.containsKey("resto_choisi")) {
+        if (savedInstanceState != null && savedInstanceState.containsKey("resto_choisi")) {
             resto_choisi = this.getIntent().getStringExtra("resto_choisi");
         }else {
             //Erreur
             resto_choisi = "Error";
+        }*/
+
+        Bundle b = getIntent().getExtras();
+        if (b != null) {
+            resto_choisi = b.getString("resto_choisi");
         }
+
+        mViewPager.setCurrentItem(1);
     }
 
 
@@ -116,11 +122,11 @@ public class RestoActivity extends Activity {
         public CharSequence getPageTitle(int position) {
             switch (position) {
                 case 0:
-                    return "SECTION 1";
+                    return getString(R.string.title_resto_dollys);
                 case 1:
-                    return "SECTION 2";
+                    return getString(R.string.title_resto_rua);
                 case 2:
-                    return "SECTION 3";
+                    return getString(R.string.title_resto_atelier_burger);
             }
             return null;
         }
@@ -157,7 +163,7 @@ public class RestoActivity extends Activity {
             View rootView = inflater.inflate(R.layout.fragment_resto, container, false);
             TextView textView = (TextView) rootView.findViewById(R.id.section_label);
             textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
-
+            textView.setText(resto_choisi);
             return rootView;
         }
     }

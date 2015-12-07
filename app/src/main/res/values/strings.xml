@@ -27,10 +27,17 @@
     <string name="imageButtonRestoDescription">Icon calling the Resto activity</string>
 
 
-    <!--    List of Restaurants    -->
-    <string name="title_resto_dollys">Dolly's</string>
-    <string name="title_resto_atelier_burger">L'atelier du burger</string>
+    <!--    List of Restaurants' Name    -->
+    <string name="title_resto_dollys">Dolly\'s</string>
     <string name="title_resto_rua">Universitaire</string>
+    <string name="title_resto_atelier_burger">L\'atelier du burger</string>
+
+
+    <!--    List of Restaurants' Snipet    -->
+    <string name="snipet_resto_dollys">Dolly\'s is cool</string>
+    <string name="snipet_resto_rua">Côte de Nacre</string>
+    <string name="snipet_resto_atelier_burger">Miam Miam !</string>
+
 
 
     <!--    Permissions    -->
