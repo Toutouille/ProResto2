@@ -65,9 +65,7 @@ public class MapsActivity extends FragmentActivity
                 .title("Ecole Nationale D'ingénieur de Caen")
                 .snippet("Pas si mal que ça..!"));
 
-        Marker CAEN_marker = mMap.addMarker(new MarkerOptions()
-                .position(CAEN)
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
+
 
         // move the camera to caen
         mMap.moveCamera(CameraUpdateFactory.newLatLng(CAEN));
@@ -91,6 +89,11 @@ public class MapsActivity extends FragmentActivity
                 .title(getString(R.string.title_resto_atelier_burger))
                 .snippet(getString(R.string.snipet_resto_atelier_burger))
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
+
+        // Caen city Marker (the last one)
+        Marker CAEN_marker = mMap.addMarker(new MarkerOptions()
+                .position(CAEN)
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
 
         // Activate geolocalisation
         mMap.setOnMyLocationButtonClickListener(this);
@@ -123,7 +126,7 @@ public class MapsActivity extends FragmentActivity
         //On créé un objet Bundle, c'est ce qui va nous permetre d'envoyer des données à l'autre Activity
         Bundle objetbunble = new Bundle();
         //Cela fonctionne plus ou moins comme une HashMap, on entre une clef et sa valeur en face
-        objetbunble.putString("resto_choisi", clicked_marker.getTitle());
+        objetbunble.putString("resto_choisi", clicked_marker.getId());
         Intent intent = new Intent(MapsActivity.this, RestoActivity.class);
         //On affecte à l'Intent le Bundle que l'on a créé
         intent.putExtras(objetbunble);

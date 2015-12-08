@@ -59,13 +59,30 @@ public class RestoActivity extends Activity {
             //Erreur
             resto_choisi = "Error";
         }*/
-
+        int pageSelected = 0;
         Bundle b = getIntent().getExtras();
         if (b != null) {
             resto_choisi = b.getString("resto_choisi");
+            switch (b.getString("resto_choisi")){
+                case "m0":
+                    pageSelected = 0;
+                    break;
+                case "m1":
+                    pageSelected = 1;
+                    break;
+                case "m2":
+                    pageSelected = 2;
+                    break;
+                case "m3":
+                    pageSelected = 3;
+                    break;
+                default:
+                    pageSelected = 0;
+            }
         }
 
-        mViewPager.setCurrentItem(1);
+
+        mViewPager.setCurrentItem(pageSelected);
     }
 
 
@@ -114,18 +131,20 @@ public class RestoActivity extends Activity {
 
         @Override
         public int getCount() {
-            // Show 3 total pages.
-            return 3;
+            // Show 4 total pages.
+            return 4;
         }
 
         @Override
         public CharSequence getPageTitle(int position) {
             switch (position) {
                 case 0:
-                    return getString(R.string.title_resto_dollys);
+                    return getString(R.string.title_ensicaen);
                 case 1:
-                    return getString(R.string.title_resto_rua);
+                    return getString(R.string.title_resto_dollys);
                 case 2:
+                    return getString(R.string.title_resto_rua);
+                case 3:
                     return getString(R.string.title_resto_atelier_burger);
             }
             return null;
@@ -162,8 +181,8 @@ public class RestoActivity extends Activity {
                                  Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_resto, container, false);
             TextView textView = (TextView) rootView.findViewById(R.id.section_label);
-            textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
-            textView.setText(resto_choisi);
+            textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER))
+                    +"\nLe resto choisi est : "+resto_choisi);
             return rootView;
         }
     }
