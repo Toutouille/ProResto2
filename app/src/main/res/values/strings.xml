@@ -29,7 +29,7 @@
 
     <!--    List of Restaurants' Name    -->
     <string name="title_resto_dollys">Dolly\'s</string>
-    <string name="title_resto_rua">Universitaire</string>
+    <string name="title_resto_rua">Restaurant Universitaire</string>
     <string name="title_resto_atelier_burger">L\'atelier du burger</string>
 
 
@@ -37,6 +37,10 @@
     <string name="snipet_resto_dollys">Dolly\'s is cool</string>
     <string name="snipet_resto_rua">Côte de Nacre</string>
     <string name="snipet_resto_atelier_burger">Miam Miam !</string>
+
+    <!--    Relative to frament_resto.xml    -->
+    <string name="text_button_resto_menu">Menu</string>
+    <string name="text_button_resto_reserve">Reserver</string>
 
 
 

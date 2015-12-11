@@ -10,6 +10,7 @@ import android.app.FragmentManager;
 import android.support.v13.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -179,11 +180,24 @@ public class RestoActivity extends Activity {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_resto, container, false);
-            TextView textView = (TextView) rootView.findViewById(R.id.section_label);
-            textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER))
-                    +"\nLe resto choisi est : "+resto_choisi);
-            return rootView;
+            View rootView;
+            TextView textView;
+
+            // Choose the correct style of fragment. Depend of the tab
+            if (getArguments().getInt(ARG_SECTION_NUMBER) == 1) {
+                rootView = inflater.inflate(R.layout.fragment_resto_home, container, false);
+                textView = (TextView) rootView.findViewById(R.id.section_label);
+                textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER))
+                        + "\nC'est une école : " + resto_choisi);
+                return rootView;
+            }
+            else{
+                rootView = inflater.inflate(R.layout.fragment_resto, container, false);
+                textView = (TextView) rootView.findViewById(R.id.section_label);
+                textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER))
+                        + "\nLe resto choisi est : " + resto_choisi);
+                return rootView;
+            }
         }
     }
 }
