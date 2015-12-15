@@ -67,11 +67,9 @@ public class RestoActivity extends Activity {
                     id_resto_choisi_int = 4;
                     break;
             }
-            RestoChoisi = new Restaurant(this.getApplicationContext(), id_resto_choisi_int-1);
+            RestoChoisi = new Restaurant(this.getApplicationContext(), id_resto_choisi_int);
             pageSelected = RestoChoisi.getPageNum();
             Log.v("RestoActivity.java", "OK");
-            String name = RestoChoisi.getName();
-            Log.v("RestoActivity.java",name);
         }
         // Pour sélectionner la bonne page
         mViewPager.setCurrentItem(pageSelected);
