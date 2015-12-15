@@ -49,7 +49,7 @@ public class RestoActivity extends Activity {
 
 
         //On récupère les données du Bundle
-        int pageSelected = 1;
+        int pageSelected = 0;
         Bundle b = getIntent().getExtras();
         if (b != null) {
             id_resto_choisi = b.getString("id_resto_choisi");

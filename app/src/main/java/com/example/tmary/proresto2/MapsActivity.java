@@ -25,7 +25,7 @@ public class MapsActivity extends FragmentActivity
     // Indique le nombre de restaurants enregistrés.
     int nbRestos = Restaurant.NbRestos;
     Restaurant Resto;
-    Marker tab_markers[] = new Marker[Restaurant.NbRestos];
+    Marker tab_markers[] = new Marker[Restaurant.NbRestos+1];
     static final LatLng CAEN = new LatLng(49.183, -0.3715);
     //static final LatLng ENSICAEN = new LatLng(49.214281, -0.36759);
 
