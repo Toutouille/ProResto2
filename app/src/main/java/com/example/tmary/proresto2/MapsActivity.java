@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -21,13 +22,17 @@ public class MapsActivity extends FragmentActivity
         OnMapReadyCallback,
         GoogleMap.OnInfoWindowClickListener {
 
+    // Indique le nombre de restaurants enregistrés.
+    int nbRestos = Restaurant.NbRestos;
+    Restaurant Resto;
+    Marker tab_markers[] = new Marker[Restaurant.NbRestos];
     static final LatLng CAEN = new LatLng(49.183, -0.3715);
-    static final LatLng ENSICAEN = new LatLng(49.214281, -0.36759);
+    //static final LatLng ENSICAEN = new LatLng(49.214281, -0.36759);
 
-    // All restaurants' marker here
+    /*// All restaurants' marker here
     static final LatLng HAMBURGER = new LatLng(49.184814, -0.358933);
     static final LatLng DOLLY = new LatLng(49.184479, -0.359762);
-    static final LatLng RUA = new LatLng(49.213195, -0.366050);
+    static final LatLng RUA = new LatLng(49.213195, -0.366050);*/
 
     private GoogleMap mMap;
 
@@ -58,14 +63,6 @@ public class MapsActivity extends FragmentActivity
         mMap = googleMap;
         // Activation of the WindowListener
         googleMap.setOnInfoWindowClickListener(this);
-        // Add a marker in Caen and ENSICAEN
-        Marker ENSICAEN_marker = mMap.addMarker(new MarkerOptions()
-                .position(ENSICAEN)
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE))
-                .title("Ecole Nationale D'ingénieur de Caen")
-                .snippet("Pas si mal que ça..!"));
-
-
 
         // move the camera to caen
         mMap.moveCamera(CameraUpdateFactory.newLatLng(CAEN));
@@ -73,27 +70,20 @@ public class MapsActivity extends FragmentActivity
         // Zoom (level 14) to Caen
         mMap.animateCamera(CameraUpdateFactory.zoomTo(14), 2000, null);
 
-        // Restaurants Markers
-        Marker DOLLY_marker = mMap.addMarker(new MarkerOptions()
-                .position(DOLLY)
-                .title(getString(R.string.title_resto_dollys))
-                .snippet(getString(R.string.snipet_resto_dollys))
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
-        Marker RUA_marker = mMap.addMarker(new MarkerOptions()
-                .position(RUA)
-                .title(getString(R.string.title_resto_rua))
-                .snippet(getString(R.string.snipet_resto_rua))
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ORANGE)));
-        Marker HAMBURGER_marker = mMap.addMarker(new MarkerOptions()
-                .position(HAMBURGER)
-                .title(getString(R.string.title_resto_atelier_burger))
-                .snippet(getString(R.string.snipet_resto_atelier_burger))
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
-
-        // Caen city Marker (the last one)
+        // Caen city Marker (the first one)
         Marker CAEN_marker = mMap.addMarker(new MarkerOptions()
                 .position(CAEN)
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
+
+        // Restaurants Markers
+        for (int i=1; i<=nbRestos; i++){
+            Resto = new Restaurant(this.getApplicationContext(), i);
+            tab_markers[i] = mMap.addMarker(new MarkerOptions()
+                    .position(Resto.getPosition())
+                    .title(Resto.getName())
+                    .snippet(Resto.getDescription())
+                    .icon(Resto.getColorIcon()));
+        }
 
         // Activate geolocalisation
         mMap.setOnMyLocationButtonClickListener(this);
@@ -126,13 +116,12 @@ public class MapsActivity extends FragmentActivity
         //On créé un objet Bundle, c'est ce qui va nous permetre d'envoyer des données à l'autre Activity
         Bundle objetbunble = new Bundle();
         //Cela fonctionne plus ou moins comme une HashMap, on entre une clef et sa valeur en face
-        objetbunble.putString("resto_choisi", clicked_marker.getId());
+        objetbunble.putString("id_resto_choisi", clicked_marker.getId());
         Intent intent = new Intent(MapsActivity.this, RestoActivity.class);
         //On affecte à l'Intent le Bundle que l'on a créé
         intent.putExtras(objetbunble);
 
         startActivity(intent);
-        //TODO: When the info windows is clicked, select the restaurant and propose more information to view. May be from the database
 
     }
 

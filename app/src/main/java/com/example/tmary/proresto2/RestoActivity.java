@@ -2,9 +2,6 @@ package com.example.tmary.proresto2;
 
 
 import android.app.Activity;
-import android.app.ActionBar;
-import android.app.FragmentTransaction;
-
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.support.v13.app.FragmentPagerAdapter;
@@ -17,25 +14,24 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class RestoActivity extends Activity {
 
 
-    private static String resto_choisi;
-
+    private static String id_resto_choisi;
+    private int id_resto_choisi_int;
+    private Restaurant RestoChoisi;
     /**
-     * The {@link android.support.v4.view.PagerAdapter} that will provide
-     * fragments for each of the sections. We use a
-     * {@link FragmentPagerAdapter} derivative, which will keep every
+     * That will provide fragments for each of the sections. We use a
+     * FragmentPagerAdapter derivative, which will keep every
      * loaded fragment in memory. If this becomes too memory intensive, it
-     * may be best to switch to a
-     * {@link android.support.v13.app.FragmentStatePagerAdapter}.
+     * may be best to switch to a FragmentStatePagerAdapter.
      */
     private SectionsPagerAdapter mSectionsPagerAdapter;
-
     /**
-     * The {@link ViewPager} that will host the section contents.
+     * That will host the section contents.
      */
     private ViewPager mViewPager;
 
@@ -52,38 +48,34 @@ public class RestoActivity extends Activity {
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
 
-        /*
         //On récupère les données du Bundle
-        if (savedInstanceState != null && savedInstanceState.containsKey("resto_choisi")) {
-            resto_choisi = this.getIntent().getStringExtra("resto_choisi");
-        }else {
-            //Erreur
-            resto_choisi = "Error";
-        }*/
-        int pageSelected = 0;
+        int pageSelected = 1;
         Bundle b = getIntent().getExtras();
         if (b != null) {
-            resto_choisi = b.getString("resto_choisi");
-            switch (b.getString("resto_choisi")){
-                case "m0":
-                    pageSelected = 0;
+            id_resto_choisi = b.getString("id_resto_choisi");
+            switch(id_resto_choisi) {
+                case "m1":  // ENSICAEN
+                    id_resto_choisi_int = 1;
                     break;
-                case "m1":
-                    pageSelected = 1;
+                case "m2":  // Dolly's
+                    id_resto_choisi_int = 2;
                     break;
-                case "m2":
-                    pageSelected = 2;
+                case "m3":  // RUA
+                    id_resto_choisi_int = 3;
                     break;
-                case "m3":
-                    pageSelected = 3;
+                case "m4":  // Burger
+                    id_resto_choisi_int = 4;
                     break;
-                default:
-                    pageSelected = 0;
             }
+            RestoChoisi = new Restaurant(this.getApplicationContext(), id_resto_choisi_int-1);
+            pageSelected = RestoChoisi.getPageNum();
+            Log.v("RestoActivity.java", "OK");
+            String name = RestoChoisi.getName();
+            Log.v("RestoActivity.java",name);
         }
-
-
+        // Pour sélectionner la bonne page
         mViewPager.setCurrentItem(pageSelected);
+
     }
 
 
@@ -109,8 +101,8 @@ public class RestoActivity extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
-    public String getResto_choisi() {
-        return resto_choisi;
+    public String getIdRestoChoisi() {
+        return id_resto_choisi;
     }
 
     /**
@@ -182,21 +174,38 @@ public class RestoActivity extends Activity {
                                  Bundle savedInstanceState) {
             View rootView;
             TextView textView;
+            ImageView imageView;
+            int pageSelected = getArguments().getInt(ARG_SECTION_NUMBER);
 
             // Choose the correct style of fragment. Depend of the tab
-            if (getArguments().getInt(ARG_SECTION_NUMBER) == 1) {
+            if (pageSelected == 1) {
                 rootView = inflater.inflate(R.layout.fragment_resto_home, container, false);
                 textView = (TextView) rootView.findViewById(R.id.section_label);
                 textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER))
-                        + "\nC'est une école : " + resto_choisi);
+                        + "\nC'est une école : " + id_resto_choisi);
                 return rootView;
             }
             else{
                 rootView = inflater.inflate(R.layout.fragment_resto, container, false);
+                imageView = (ImageView) rootView.findViewById(R.id.imageZone);
                 textView = (TextView) rootView.findViewById(R.id.section_label);
                 textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER))
-                        + "\nLe resto choisi est : " + resto_choisi);
+                        + "\nLe resto choisi est : " + id_resto_choisi);
+
+                switch(pageSelected) {
+                    case 2:
+                        imageView.setImageResource(R.drawable.logo_rest1);
+                        break;
+                    case 3:
+                        imageView.setImageResource(R.drawable.logo_rest2);
+                        break;
+                    case 4:
+                        imageView.setImageResource(R.drawable.logo_rest3);
+                        break;
+                }
+
                 return rootView;
+
             }
         }
     }

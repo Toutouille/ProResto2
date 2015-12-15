@@ -21,7 +21,14 @@
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="0.3" />
+                android:layout_weight="0.3" >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/imageZone"
+                    android:contentDescription="Emplacement du logo du restaurant" />
+            </LinearLayout>
 
             <LinearLayout
                 android:orientation="vertical"

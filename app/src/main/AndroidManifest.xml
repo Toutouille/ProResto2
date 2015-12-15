@@ -34,11 +34,6 @@
             android:label="@string/title_activity_order" >
         </activity>
         <activity
-            android:name=".ProfileActivity"
-            android:icon="@drawable/ic_profile"
-            android:label="@string/title_activity_profile" >
-        </activity>
-        <activity
             android:name=".MapsActivity"
             android:icon="@drawable/ic_map"
             android:label="@string/title_activity_maps" >
@@ -53,6 +48,9 @@
             android:label="@string/title_activity_resto" >
         </activity>
 
+
+
+
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -64,6 +62,7 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
+
     </application>
 
 </manifest>

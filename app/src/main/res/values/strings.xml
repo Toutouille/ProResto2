@@ -32,11 +32,11 @@
     <string name="title_resto_rua">Restaurant Universitaire</string>
     <string name="title_resto_atelier_burger">L\'atelier du burger</string>
 
-
     <!--    List of Restaurants' Snipet    -->
     <string name="snipet_resto_dollys">Dolly\'s is cool</string>
     <string name="snipet_resto_rua">Côte de Nacre</string>
     <string name="snipet_resto_atelier_burger">Miam Miam !</string>
+    <string name="snipet_ensicaen">Pas si mal que ça..!</string>
 
     <!--    Relative to frament_resto.xml    -->
     <string name="text_button_resto_menu">Menu</string>
@@ -101,12 +101,9 @@
 
     <!-- Example settings for Notifications -->
     <string name="pref_header_notifications">Notifications</string>
-
     <string name="pref_title_new_message_notifications">New message notifications</string>
-
     <string name="pref_title_ringtone">Ringtone</string>
     <string name="pref_ringtone_silent">Silent</string>
-
     <string name="pref_title_vibrate">Vibrate</string>
     <string name="section_format">Hello World from section: %1$d</string>
 
