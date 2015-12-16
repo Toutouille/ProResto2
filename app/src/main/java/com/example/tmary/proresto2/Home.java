@@ -4,10 +4,12 @@ package com.example.tmary.proresto2;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 public class Home extends Activity {
 
@@ -79,6 +81,7 @@ public class Home extends Activity {
         });*/
 
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

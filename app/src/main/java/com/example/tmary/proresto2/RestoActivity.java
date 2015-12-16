@@ -4,6 +4,7 @@ package com.example.tmary.proresto2;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.Intent;
 import android.support.v13.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
@@ -14,8 +15,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class RestoActivity extends Activity {
 
@@ -52,6 +56,7 @@ public class RestoActivity extends Activity {
         int pageSelected = 0;
         Bundle b = getIntent().getExtras();
         if (b != null) {
+            // On récupère l'id du resto choisi
             id_resto_choisi = b.getString("id_resto_choisi");
             switch(id_resto_choisi) {
                 case "m1":  // ENSICAEN
@@ -68,12 +73,29 @@ public class RestoActivity extends Activity {
                     break;
             }
             RestoChoisi = new Restaurant(this.getApplicationContext(), id_resto_choisi_int);
+            // On récupère la page correspondante
             pageSelected = RestoChoisi.getPageNum();
             Log.v("RestoActivity.java", "OK");
         }
         // Pour sélectionner la bonne page
         mViewPager.setCurrentItem(pageSelected);
+    }
 
+    public void onClickButtonMenu(View v){
+        Log.v("onClickButtonMenu", "OK");
+        Toast.makeText(this, "Affichage du Menu", Toast.LENGTH_SHORT).show();
+    }
+    public void onClickButtonReserver(View view) {
+        Log.v("onClickButtonReserver", "OK");
+        Toast.makeText(this, "OK, réservons !", Toast.LENGTH_SHORT).show();
+        // Start BookActivity for the selected restaurant
+        Intent intent = new Intent(RestoActivity.this, BookActivity.class);
+        //On créer un objet Bundle, c'est ce qui va nous permettre d'envoyer des données à l'autre Activity
+        Bundle objetbunble = new Bundle();
+        objetbunble.putInt("id_resto_choisi", id_resto_choisi_int);
+        //On affecte à l'Intent le Bundle que l'on a créé
+        intent.putExtras(objetbunble);
+        startActivity(intent);
     }
 
 
