@@ -27,16 +27,8 @@ public class MapsActivity extends FragmentActivity
     Restaurant Resto;
     Marker tab_markers[] = new Marker[Restaurant.NbRestos+1];
     static final LatLng CAEN = new LatLng(49.183, -0.3715);
-    //static final LatLng ENSICAEN = new LatLng(49.214281, -0.36759);
-
-    /*// All restaurants' marker here
-    static final LatLng HAMBURGER = new LatLng(49.184814, -0.358933);
-    static final LatLng DOLLY = new LatLng(49.184479, -0.359762);
-    static final LatLng RUA = new LatLng(49.213195, -0.366050);*/
 
     private GoogleMap mMap;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,11 +69,11 @@ public class MapsActivity extends FragmentActivity
 
         // Restaurants Markers
         for (int i=1; i<=nbRestos; i++){
-            Resto = new Restaurant(this.getApplicationContext(), i);
+            Resto = new Restaurant(this.getApplicationContext(), i, true);
             tab_markers[i] = mMap.addMarker(new MarkerOptions()
                     .position(Resto.getPosition())
                     .title(Resto.getName())
-                    .snippet(Resto.getDescription())
+                    .snippet(Resto.getSnipet())
                     .icon(Resto.getColorIcon()));
         }
 
@@ -122,9 +114,5 @@ public class MapsActivity extends FragmentActivity
         intent.putExtras(objetbunble);
 
         startActivity(intent);
-
     }
-
-
-
 }

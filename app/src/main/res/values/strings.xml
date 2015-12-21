@@ -1,12 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
 
     <string name="app_name">ProResto</string>
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-     <string name="title_ensicaen">ENSICAEN</string>
+    <string name="title_ensicaen">ENSICAEN</string>
+    <string name="description_ensicaen">Ce projet me permet d’apprendre à utiliser les divers fonctions d’Android et de coder une application capable d’offrir pas mal de possibilitées. Cette application à été créée sans aucun but particulier.</string>
+    <string name="snipet_ensicaen">Pas si mal que ça..!</string>
 
-    <!--    Activities Name    -->
+    <!--    Relative to all Activities    -->
     <string name="title_activity_book">Book a restaurant</string>
     <string name="title_activity_order">Order food</string>
     <string name="title_activity_map">Find restaurants</string>
@@ -26,27 +29,146 @@
     <string name="imageButtonProfileDescription">Icon calling the Profile activity</string>
     <string name="imageButtonRestoDescription">Icon calling the Resto activity</string>
 
+    <!--    Relative to restaurants    -->
+    <!--    Array for each restaurant -->
+    <string-array name="array_resto_dollys">
+        <item>@string/title_resto_dollys</item>   <!-- Name -->
+        <item>@string/description_resto_dollys</item>   <!-- Description -->
+        <item>@string/snipet_resto_dollys</item> <!-- Snipet -->
+    </string-array>
+    <string-array name="array_resto_rua">
+        <item>@string/title_resto_rua</item>   <!-- Name -->
+        <item>@string/description_resto_rua</item>   <!-- Description -->
+        <item>@string/snipet_resto_rua</item> <!-- Snipet -->
+    </string-array>
+    <string-array name="array_resto_atelier_burger">
+        <item>@string/title_resto_atelier_burger</item>   <!-- Name -->
+        <item>@string/description_resto_atelier_burger</item>   <!-- Description -->
+        <item>@string/snipet_resto_atelier_burger</item> <!-- Snipet -->
+    </string-array>
+    <string-array name="array_resto_a_contre_sens">
+        <item>@string/title_resto_a_contre_sens</item>   <!-- Name -->
+        <item>@string/description_resto_a_contre_sens</item>   <!-- Description -->
+        <item>@string/snipet_resto_a_contre_sens</item> <!-- Snipet -->
+    </string-array>
+    <string-array name="array_resto_le_bistrot_102">
+        <item>@string/title_resto_le_bistrot_102</item>   <!-- Name -->
+        <item>@string/description_resto_le_bistrot_102</item>   <!-- Description -->
+        <item>@string/snipet_resto_le_bistrot_102</item> <!-- Snipet -->
+    </string-array>
+    <string-array name="array_resto_cave_a_huitres">
+        <item>@string/title_resto_cave_a_huitres</item>   <!-- Name -->
+        <item>@string/description_resto_cave_a_huitres</item>   <!-- Description -->
+        <item>@string/snipet_resto_cave_a_huitres</item> <!-- Snipet -->
+    </string-array>
+    <string-array name="array_resto_anouche">
+        <item>@string/title_resto_anouche</item>   <!-- Name -->
+        <item>@string/description_resto_anouche</item>   <!-- Description -->
+        <item>@string/snipet_resto_anouche</item> <!-- Snipet -->
+    </string-array>
+    <string-array name="array_resto_burger_street">
+        <item>@string/title_resto_burger_street</item>   <!-- Name -->
+        <item>@string/description_resto_burger_street</item>   <!-- Description -->
+        <item>@string/snipet_resto_burger_street</item> <!-- Snipet -->
+    </string-array>
+    <string-array name="array_resto_le_sans_gene">
+        <item>@string/title_resto_le_sans_gene</item>   <!-- Name -->
+        <item>@string/description_resto_le_sans_gene</item>   <!-- Description -->
+        <item>@string/snipet_resto_le_sans_gene</item> <!-- Snipet -->
+    </string-array>
 
-    <!--    List of Restaurants' Name    -->
-    <string name="title_resto_dollys">Dolly\'s</string>
+    <string-array name="array_schedule_days">
+        <item>Lundi</item>
+        <item>Mardi</item>
+        <item>Mercredi</item>
+        <item>Jeudi</item>
+        <item>Vendredi</item>
+        <item>Samedi</item>
+        <item>Dimanche</item>
+    </string-array>
+
+
+    <!--    List of Restaurants’ Title     -->
+    <string name="title_resto_dollys">Dolly\’s</string>
     <string name="title_resto_rua">Restaurant Universitaire</string>
-    <string name="title_resto_atelier_burger">L\'atelier du burger</string>
+    <string name="title_resto_atelier_burger">L\’atelier du burger</string>
+    <string name="title_resto_a_contre_sens">A contre sens</string>
+    <string name="title_resto_le_bistrot_102">Le bistrot 102</string>
+    <string name="title_resto_cave_a_huitres">La cave à Huitres</string>
+    <string name="title_resto_anouche">Anouche</string>
+    <string name="title_resto_burger_street">Burger Street</string>
+    <string name="title_resto_le_sans_gene">Le sans Gêne</string>
 
-    <!--    List of Restaurants' Snipet    -->
-    <string name="snipet_resto_dollys">Dolly\'s is cool</string>
+    <!--    List of Restaurants’ Snipet    -->
+    <string name="snipet_resto_dollys">16 av de la Libération</string>
     <string name="snipet_resto_rua">Côte de Nacre</string>
-    <string name="snipet_resto_atelier_burger">Miam Miam !</string>
-    <string name="snipet_ensicaen">Pas si mal que ça..!</string>
+    <string name="snipet_resto_atelier_burger">6 rue du Buquet</string>
+    <string name="snipet_resto_a_contre_sens">8 rue des Croisiers</string>
+    <string name="snipet_resto_le_bistrot_102">102 rue Saint Martin</string>
+    <string name="snipet_resto_cave_a_huitres">24 bis Quai Vendeuvre</string>
+    <string name="snipet_resto_anouche">7 rue Samuel Bochard</string>
+    <string name="snipet_resto_burger_street">13 rue Caponière</string>
+    <string name="snipet_resto_le_sans_gene">2 rue du Vaugueux</string>
 
-    <!--    Relative to frament_resto.xml    -->
+    <!--    List of Restaurants’ Description    -->
+    <string name="description_resto_none">Aucune description pour ce restaurant</string>
+    <string name="description_resto">Description du restaurant</string>
+    <string name="description_resto_dollys">Options : Petit-déjeuner, Brunch, Ouvert tard, Terrasse extérieure, Sur réservation, Places assises, Service en salle </string>
+    <string name="description_resto_rua">@string/description_resto_none</string>
+    <string name="description_resto_atelier_burger">L’atelier du Burger Caen! Burgers maison composés de produits frais ... Options : Dîner, Ouvert tard, Plats à emporter </string>
+    <string name="description_resto_a_contre_sens">Après avoir fréquenté depuis son plus jeune âge de grandes et belles adresses du Martinez à l’Elysée en passant par le Chabichou à Courchevel et secondé pendant dix ans Eric Provost à l’Etrier, Anthony Caillot vole de ses propres ailes aujourd’hui.
+En s’installant à Caen avec sa charmante épouse Cindy, ce jeune Chef exigeant a rapidement trouvé sa voie. Il offre de découvrir une cuisine toute personnelle, faite de contrastes, rigoureuse, créative mais respectueuse des traditions. S’entourant de plus des services de Samuel Moreiras, l’enseigne est devenue incontournable. La réservation est indispensable.</string>
+    <string name="description_resto_le_bistrot_102">Christelle et Cédric vous accueillent au Bistrot 102 depuis le 3 Juin 2014! Produits frais fait maison. Options : American Express acceptée, Mastercard acceptée, Visa acceptée, Wi-Fi gratuit, Bar complet, Terrasse extérieure, Sur réservation, Places assises, Sert de l’alcool, Service en salle, Bière et vin.</string>
+    <string name="description_resto_cave_a_huitres">Le restaurant La Cave à Huitres vous accueille à Caen dans le département du Calvados. Nous sommes implantés face au port de Caen.
+Nous vous invitons à vous installer sur la terrasse afin de profiter de la vue sur le port. La terrasse est ombragée et ensoleillée selon vos envies.
+Notre restaurant d’une quinzaine de couverts vous reçoit dans un cadre chaleureux créé dans des matériaux nobles. Le cadre design et cosy vous permet de passer un agréable moment.
+Nous vous proposons de déguster nos huitres. En tant que producteurs, nous mettons un point d’honneur à vous préparer des huitres Normandes et de délicieux fruits de mer. Nous sélectionnons pour vous des vins uniques faits pour révéler à votre palais le goût des huitres.
+Vous avez la possibilité de manger sur place ou de les emporter ! A bientôt à La Cave à Huitres ! Options : Terrasse extérieure, Sur réservation, Places assises.</string>
+    <string name="description_resto_anouche">Restaurant arménien à base de produits frais et de plats 100% maison, Anouche est situé près du port de Caen.</string>
+    <string name="description_resto_burger_street">Hamburgers faits maison et pain boulanger. Restauration rapide, sur place ou à emporter à Caen.</string>
+    <string name="description_resto_le_sans_gene">Restaurant pas comme les autres formule unique tout compris :1 apéritif offert (sangria blanche) 1 café compris, le reste est à volonté entrées, plats, fromages, salades et desserts maison ,boissons incluses vin (avec modération) et sodas... Une particularité de notre établissement qu’il ne faut pas négliger est que le client est mis à contribution pour se servir et se faire cuire ses propres brochettes sur un barbecue géant...</string>
+
+
+    <!--    Schedule string -->
+    <string name="resto_schedule_title">Horaire du restaurant</string>
+    <!--
+    <string name="resto_schedule_900">9h00</string>
+    <string name="resto_schedule_930">9h30</string>
+    <string name="resto_schedule_1000">10h00</string>
+    <string name="resto_schedule_1030">10h30</string>
+    <string name="resto_schedule_1100">11h</string>
+    <string name="resto_schedule_1130">11h30</string>
+    <string name="resto_schedule_1200">12h</string>
+    <string name="resto_schedule_1230">12h30</string>
+    <string name="resto_schedule_1300">13h</string>
+    <string name="resto_schedule_1330">13h30</string>
+    <string name="resto_schedule_1400">14h</string>
+    <string name="resto_schedule_1430">14h30</string>
+    <string name="resto_schedule_1500">15h</string>
+    <string name="resto_schedule_1600">16h</string>
+    <string name="resto_schedule_1700">17h</string>
+    <string name="resto_schedule_1800">18h</string>
+    <string name="resto_schedule_1900">19h</string>
+    <string name="resto_schedule_1930">19h30</string>
+    <string name="resto_schedule_2000">20h00</string>
+    <string name="resto_schedule_2030">20h30</string>
+    <string name="resto_schedule_2230">22h30</string>
+    <string name="resto_schedule_2300">23h</string>
+    <string name="resto_schedule_2330">23h30</string>
+    <string name="resto_schedule_000">0h00</string>
+    <string name="resto_schedule_030">0h30</string>
+    <string name="resto_schedule_100">1h00</string>
+    -->
+
+
+     <!--    Relative to frament_resto.xml    -->
     <string name="text_button_resto_menu">Menu</string>
-    <string name="text_button_resto_reserve">Reserver</string>
-
+    <string name="text_button_resto_reserve">Réserver</string>
 
 
     <!--    Permissions    -->
-    <string name="permission_rationale_location">Access to the location service is required to demonstrate the \'my location\' feature, which shows your current location on the map.</string>
-    <string name="location_permission_denied">This sample requires location permission to enable the \'my location\' layer. Please try again and grant access to use the location.\nIf the permission has been permanently denied, it can be enabled from the System Settings &gt; Apps &gt; \'Google Maps API Demos\'.</string>
+    <string name="permission_rationale_location">Access to the location service is required to demonstrate the \’my location\’ feature, which shows your current location on the map.</string>
+    <string name="location_permission_denied">This sample requires location permission to enable the \’my location\’ layer. Please try again and grant access to use the location.\nIf the permission has been permanently denied, it can be enabled from the System Settings &gt; Apps &gt; \’Google Maps API Demos\’.</string>
     <string name="permission_required_toast">Location permission is required for this demo.</string>
     <string name="title_activity_settings">Settings</string>
 
@@ -105,6 +227,6 @@
     <string name="pref_title_ringtone">Ringtone</string>
     <string name="pref_ringtone_silent">Silent</string>
     <string name="pref_title_vibrate">Vibrate</string>
-    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="section_format">%1$d</string>
 
 </resources>

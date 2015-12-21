@@ -8,16 +8,14 @@ import android.content.Intent;
 import android.support.v13.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-
-import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -71,8 +69,32 @@ public class RestoActivity extends Activity {
                 case "m4":  // Burger
                     id_resto_choisi_int = 4;
                     break;
+                case "m5":  //
+                    id_resto_choisi_int = 5;
+                    break;
+                case "m6":  //
+                    id_resto_choisi_int = 6;
+                    break;
+                case "m7":  //
+                    id_resto_choisi_int = 7;
+                    break;
+                case "m8":  //
+                    id_resto_choisi_int = 8;
+                    break;
+                case "m9":  //
+                    id_resto_choisi_int = 9;
+                    break;
+                case "m10":  //
+                    id_resto_choisi_int = 10;
+                    break;
+                case "m11":  //
+                    id_resto_choisi_int = 11;
+                    break;
+                case "m12":
+                    id_resto_choisi_int = 12;
+                    break;
             }
-            RestoChoisi = new Restaurant(this.getApplicationContext(), id_resto_choisi_int);
+            RestoChoisi = new Restaurant(this.getApplicationContext(), id_resto_choisi_int, false);
             // On récupère la page correspondante
             pageSelected = RestoChoisi.getPageNum();
             Log.v("RestoActivity.java", "OK");
@@ -144,8 +166,8 @@ public class RestoActivity extends Activity {
 
         @Override
         public int getCount() {
-            // Show 4 total pages.
-            return 4;
+            // Show NbRestos total pages.
+            return Restaurant.NbRestos;
         }
 
         @Override
@@ -193,24 +215,38 @@ public class RestoActivity extends Activity {
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
             View rootView;
-            TextView textView;
+            TextView section_label, description, schedule;
             ImageView imageView;
             int pageSelected = getArguments().getInt(ARG_SECTION_NUMBER);
+            Log.v("RestoActivity", "Page Selected : "+ Integer.toString(pageSelected));
 
             // Choose the correct style of fragment. Depend of the tab
             if (pageSelected == 1) {
                 rootView = inflater.inflate(R.layout.fragment_resto_home, container, false);
-                textView = (TextView) rootView.findViewById(R.id.section_label);
-                textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER))
-                        + "\nC'est une école : " + id_resto_choisi);
+                description = (TextView) rootView.findViewById(R.id.description);
+
+                description.setText(getString(R.string.description_ensicaen));
                 return rootView;
             }
             else{
+                Restaurant Resto = new Restaurant(this.getActivity().getApplicationContext(), pageSelected, false);
+                String RestoSchedule = "Lundi : "+Resto.getMySchedule().getMonday()
+                        +"\nMardi : "+Resto.getMySchedule().getTuesday()
+                        +"\nMercredi : "+Resto.getMySchedule().getWednesday()
+                        +"\nJeudi : "+Resto.getMySchedule().getThursday()
+                        +"\nVendredi : "+Resto.getMySchedule().getFriday()
+                        +"\nSamedi : "+Resto.getMySchedule().getSaturday()
+                        +"\nDimanche : "+Resto.getMySchedule().getSunday();
                 rootView = inflater.inflate(R.layout.fragment_resto, container, false);
                 imageView = (ImageView) rootView.findViewById(R.id.imageZone);
-                textView = (TextView) rootView.findViewById(R.id.section_label);
-                textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER))
-                        + "\nLe resto choisi est : " + id_resto_choisi);
+                section_label = (TextView) rootView.findViewById(R.id.section_label);
+                description = (TextView) rootView.findViewById(R.id.description);
+                schedule = (TextView) rootView.findViewById(R.id.schedule);
+
+                section_label.setText(getString(R.string.section_format, pageSelected));
+                description.setText(Resto.getDescription());
+                description.setMovementMethod(new ScrollingMovementMethod());
+                schedule.setText(RestoSchedule);
 
                 switch(pageSelected) {
                     case 2:
