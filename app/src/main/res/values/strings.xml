@@ -164,6 +164,21 @@ Vous avez la possibilité de manger sur place ou de les emporter ! A bientôt à
      <!--    Relative to frament_resto.xml    -->
     <string name="text_button_resto_menu">Menu</string>
     <string name="text_button_resto_reserve">Réserver</string>
+    
+    <!--    Relative to activity_book.xml  -->
+    <string name="title_home_book">Réserver un Resto</string>
+    <string name="text_select_restaurant">Restaurant :</string>
+    <string name="text_select_date">Date :</string>
+    <string name="text_select_time">Time :</string>
+    <string name="text_select_nb_person">Number of persons :</string>
+    <string name="button_my_reservations">My reservations</string>
+    <string-array name="test">
+        <item>number1</item>
+        <item>number2</item>
+        <item>number3</item>
+        <item>number4</item>
+        <item>number4</item>
+    </string-array>
 
 
     <!--    Permissions    -->

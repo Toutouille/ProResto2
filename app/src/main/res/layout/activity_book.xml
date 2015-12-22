@@ -1,7 +1,191 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.40           "
+        android:layout_gravity="center_horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/title_home_book"
+            android:id="@+id/id_text_home_book"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textStyle="bold|italic"
+            android:textSize="30sp"
+            android:typeface="serif" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.5"
+        android:layout_marginLeft="10sp">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_weight="0.09"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="10sp"
+                    android:paddingBottom="10sp"
+                    android:layout_gravity="center_horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/text_select_restaurant"
+                        android:id="@+id/id_text_selected_restaurant"
+                        android:textSize="15sp"
+                        android:typeface="serif" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="10sp"
+                    android:paddingBottom="10sp"
+                    android:layout_gravity="center_horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/text_select_date"
+                        android:id="@+id/id_text_selected_date"
+                        android:textSize="15sp"
+                        android:typeface="serif" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="10sp"
+                    android:paddingBottom="10sp"
+                    android:layout_gravity="center_horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/text_select_time"
+                        android:id="@+id/id_text_selected_time"
+                        android:textSize="15sp"
+                        android:typeface="serif" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="10sp"
+                    android:paddingBottom="10sp"
+                    android:layout_gravity="center_horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/text_select_nb_person"
+                        android:id="@+id/id_text_selected_nb_person"
+                        android:textSize="15sp"
+                        android:typeface="serif" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_weight="0.61"
+                android:layout_height="match_parent"
+                android:layout_width="0dp">
+
+                <Spinner
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/testSpinner"
+                    android:entries="@array/test" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="6sp"
+            android:paddingBottom="6sp"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="30sp">
+
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_button_order"
+                android:id="@+id/id_button_order"
+                android:layout_gravity="center_vertical|right"
+                android:gravity="center"
+                android:paddingLeft="30sp"
+                android:paddingTop="10sp"
+                android:paddingRight="30sp"
+                android:paddingBottom="10sp"
+                android:textAlignment="center"
+                android:textSize="30sp"
+                android:clickable="true" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.10"
+        android:layout_gravity="center_horizontal">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/button_my_reservations"
+            android:id="@+id/id_button_myreservations"
+            android:layout_gravity="center"
+            android:textAlignment="center"
+            android:textStyle="italic"
+            android:textSize="30sp"
+            android:typeface="serif"
+            android:paddingRight="20sp"
+            android:paddingBottom="10sp"
+            android:singleLine="false"
+            android:paddingLeft="20sp"
+            android:paddingTop="10sp"
+            android:clickable="true" />
+    </LinearLayout>
 
 </LinearLayout>
