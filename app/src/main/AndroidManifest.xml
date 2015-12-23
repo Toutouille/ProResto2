@@ -44,6 +44,11 @@
             android:configChanges="orientation|screenSize">
         </activity>
         <activity
+            android:name=".ReservationsActivity"
+            android:icon="@drawable/ic_calendar"
+            android:label="@string/title_activity_reservations">
+        </activity>
+        <activity
             android:name=".SettingsActivity"
             android:label="@string/title_activity_settings" >
         </activity>

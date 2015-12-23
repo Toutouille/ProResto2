@@ -1,33 +1,26 @@
 package com.example.tmary.proresto2;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Spinner;
-import android.widget.Toast;
 
 /**
- * Created by tmary on 12/11/15.
+ * Created by Tristan on 23/12/2015.
  */
-public class OrderActivity extends Activity {
+public class ReservationsActivity extends Activity{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_order);
+        setContentView(R.layout.activity_reservations);
 
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_order, menu);
+        getMenuInflater().inflate(R.menu.menu_reservations, menu);
         return true;
     }
 
@@ -40,5 +33,4 @@ public class OrderActivity extends Activity {
 
         return super.onOptionsItemSelected(item);
     }
-
 }

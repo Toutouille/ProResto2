@@ -21,7 +21,7 @@
             android:layout_gravity="center"
             android:gravity="center"
             android:textStyle="bold|italic"
-            android:textSize="30sp"
+            android:textSize="25sp"
             android:typeface="serif" />
     </LinearLayout>
 
@@ -136,21 +136,21 @@
                     android:layout_height="wrap_content"
                     android:inputType="date"
                     android:ems="10"
-                    android:id="@+id/editText_date" />
+                    android:id="@+id/id_editText_date" />
 
                 <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:inputType="time"
                     android:ems="10"
-                    android:id="@+id/editText_time" />
+                    android:id="@+id/id_editText_time" />
 
                 <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:inputType="number"
                     android:ems="10"
-                    android:id="@+id/editText_nb_persons" />
+                    android:id="@+id/id_editText_nb_persons" />
 
             </LinearLayout>
 
@@ -169,8 +169,8 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/text_button_order"
-                android:id="@+id/id_button_order"
+                android:text="@string/text_button_book"
+                android:id="@+id/id_button_book"
                 android:layout_gravity="center_vertical|right"
                 android:gravity="center"
                 android:paddingLeft="30sp"
@@ -179,7 +179,8 @@
                 android:paddingBottom="10sp"
                 android:textAlignment="center"
                 android:textSize="30sp"
-                android:clickable="true" />
+                android:clickable="true"
+                android:onClick="onClickButtonBook"/>
         </LinearLayout>
 
     </LinearLayout>
@@ -206,7 +207,8 @@
             android:singleLine="false"
             android:paddingLeft="20sp"
             android:paddingTop="10sp"
-            android:clickable="true" />
+            android:clickable="true"
+            android:onClick="onClickButtonMyReservations"/>
     </LinearLayout>
 
 </LinearLayout>

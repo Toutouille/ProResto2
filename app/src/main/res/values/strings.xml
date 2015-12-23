@@ -10,18 +10,19 @@
     <string name="snipet_ensicaen">Pas si mal que ça..!</string>
 
     <!--    Relative to all Activities    -->
-    <string name="title_activity_book">Book a restaurant</string>
-    <string name="title_activity_order">Order food</string>
-    <string name="title_activity_map">Find restaurants</string>
-    <string name="title_activity_maps">Find restaurants on the map</string>
-    <string name="title_activity_profile">Configure your profile</string>
-    <string name="title_activity_resto">List of Restaurants</string>
+    <string name="title_activity_book">Réserver un restaurant</string>
+    <string name="title_activity_order">Commander des plats</string>
+    <string name="title_activity_map">Trouver des restaurants</string>
+    <string name="title_activity_maps">Trouver des restaurants</string>
+    <string name="title_activity_profile">Modifier son profile</string>
+    <string name="title_activity_resto">Liste des restaurants</string>
+    <string name="title_activity_reservations">Mes réservations</string>
 
-    <string name="text_button_book">Book</string>
-    <string name="text_button_order">Order</string>
-    <string name="text_button_map">Map</string>
+    <string name="text_button_book">Réserver</string>
+    <string name="text_button_order">Commander</string>
+    <string name="text_button_map">Carte</string>
     <string name="text_button_profile">Profile</string>
-    <string name="text_button_resto">Resto</string>
+    <string name="text_button_resto">Restaurants</string>
 
     <string name="imageButtonBookDescription">Icon calling the Book activity</string>
     <string name="imageButtonOrderDescription">Icon calling the Order activity</string>
@@ -90,15 +91,17 @@
 
     <!--    Array-list of restaurant's title    -->
     <string-array name="array_resto_title">
-        <item>@string/title_resto_a_contre_sens</item>
-        <item>@string/title_resto_anouche</item>
-        <item>@string/title_resto_atelier_burger</item>
-        <item>@string/title_resto_burger_street</item>
-        <item>@string/title_resto_cave_a_huitres</item>
+        <item></item>
         <item>@string/title_resto_dollys</item>
-        <item>@string/title_resto_le_bistrot_102</item>
-        <item>@string/title_resto_le_sans_gene</item>
         <item>@string/title_resto_rua</item>
+        <item>@string/title_resto_atelier_burger</item>
+        <item>@string/title_resto_a_contre_sens</item>
+        <item>@string/title_resto_le_bistrot_102</item>
+        <item>@string/title_resto_cave_a_huitres</item>
+        <item>@string/title_resto_anouche</item>
+        <item>@string/title_resto_burger_street</item>
+        <item>@string/title_resto_le_sans_gene</item>
+
     </string-array>
 
     <!--    List of Restaurants’ Title     -->
@@ -179,20 +182,12 @@ Vous avez la possibilité de manger sur place ou de les emporter ! A bientôt à
     <string name="text_button_resto_reserve">Réserver</string>
     
     <!--    Relative to activity_book.xml  -->
-    <string name="title_home_book">Réserver un Resto</string>
+    <string name="title_home_book">Réserver un Restaurant</string>
     <string name="text_select_restaurant">Restaurant :</string>
     <string name="text_select_date">Date :</string>
-    <string name="text_select_time">Time :</string>
-    <string name="text_select_nb_person">Number of persons :</string>
-    <string name="button_my_reservations">My reservations</string>
-    <string-array name="test">
-        <item>number1</item>
-        <item>number2</item>
-        <item>number3</item>
-        <item>number4</item>
-        <item>number4</item>
-    </string-array>
-
+    <string name="text_select_time">Horaire :</string>
+    <string name="text_select_nb_person">Nombre de personnes :</string>
+    <string name="button_my_reservations">Mes réservations</string>
 
     <!--    Permissions    -->
     <string name="permission_rationale_location">Access to the location service is required to demonstrate the \’my location\’ feature, which shows your current location on the map.</string>

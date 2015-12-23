@@ -26,6 +26,8 @@ public class RestoActivity extends Activity {
     private static String id_resto_choisi;
     private int id_resto_choisi_int;
     private Restaurant RestoChoisi;
+
+    public final static String Extra_message ="id_resto_choisi";
     /**
      * That will provide fragments for each of the sections. We use a
      * FragmentPagerAdapter derivative, which will keep every
@@ -115,7 +117,7 @@ public class RestoActivity extends Activity {
         Intent intent = new Intent(RestoActivity.this, BookActivity.class);
         //On créer un objet Bundle, c'est ce qui va nous permettre d'envoyer des données à l'autre Activity
         Bundle objetbunble = new Bundle();
-        objetbunble.putInt("id_resto_choisi", id_resto_choisi_int);
+        objetbunble.putInt(Extra_message, id_resto_choisi_int);
         //On affecte à l'Intent le Bundle que l'on a créé
         intent.putExtras(objetbunble);
         startActivity(intent);
