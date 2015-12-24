@@ -3,7 +3,6 @@ package com.example.tmary.proresto2;
 import android.content.Context;
 import android.util.Log;
 import android.widget.ImageView;
-
 import com.google.android.gms.maps.model.BitmapDescriptor;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
@@ -13,6 +12,7 @@ import com.google.android.gms.maps.model.LatLng;
  */
 public class Restaurant {
 
+    // Indique le nombre de restaurants dans la base de données
     public static int NbRestos = 10;
 
     private int id;
@@ -25,6 +25,7 @@ public class Restaurant {
     private BitmapDescriptor colorIcon;
     private ImageView imageView;
     private Schedule MySchedule;
+
 
     protected Context context;
 
@@ -218,6 +219,21 @@ public class Restaurant {
 
     public LatLng getPosition() {
         return Position;
+    }
+
+    public ImageView getImageView(ImageView imageView, int pageSelected) {
+        switch(pageSelected) {
+            case 2:
+                imageView.setImageResource(R.drawable.logo_rest1);
+                break;
+            case 3:
+                imageView.setImageResource(R.drawable.logo_rest2);
+                break;
+            case 4:
+                imageView.setImageResource(R.drawable.logo_rest3);
+                break;
+        }
+        return imageView;
     }
 
     public void setImageView(ImageView imageView) {

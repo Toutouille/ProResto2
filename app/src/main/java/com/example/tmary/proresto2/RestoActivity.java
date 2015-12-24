@@ -7,7 +7,6 @@ import android.app.FragmentManager;
 import android.content.Intent;
 import android.support.v13.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v4.view.ViewPager.PageTransformer;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
@@ -246,17 +245,7 @@ public class RestoActivity extends Activity {
                 description.setMovementMethod(new ScrollingMovementMethod());
                 schedule.setText(RestoSchedule);
 
-                switch(pageSelected) {
-                    case 2:
-                        imageView.setImageResource(R.drawable.logo_rest1);
-                        break;
-                    case 3:
-                        imageView.setImageResource(R.drawable.logo_rest2);
-                        break;
-                    case 4:
-                        imageView.setImageResource(R.drawable.logo_rest3);
-                        break;
-                }
+                Resto.getImageView(imageView, pageSelected);
 
                 return rootView;
 
