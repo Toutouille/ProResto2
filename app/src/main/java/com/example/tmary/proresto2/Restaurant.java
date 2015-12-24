@@ -224,13 +224,31 @@ public class Restaurant {
     public ImageView getImageView(ImageView imageView, int pageSelected) {
         switch(pageSelected) {
             case 2:
-                imageView.setImageResource(R.drawable.logo_rest1);
+                imageView.setImageResource(R.drawable.logo_dollys);
                 break;
             case 3:
-                imageView.setImageResource(R.drawable.logo_rest2);
+                imageView.setImageResource(R.drawable.logo_rua);
                 break;
             case 4:
-                imageView.setImageResource(R.drawable.logo_rest3);
+                imageView.setImageResource(R.drawable.logo_atelier_du_burger);
+                break;
+            case 5:
+                imageView.setImageResource(R.drawable.logo_a_contre_sens);
+                break;
+            case 6:
+                imageView.setImageResource(R.drawable.logo_le_bistrot_102);
+                break;
+            case 7:
+                imageView.setImageResource(R.drawable.logo_la_cave_a_huitres);
+                break;
+            case 8:
+                imageView.setImageResource(R.drawable.logo_anouche);
+                break;
+            case 9:
+                imageView.setImageResource(R.drawable.logo_burger_street);
+                break;
+            case 10:
+                imageView.setImageResource(R.drawable.logo_le_sans_gene);
                 break;
         }
         return imageView;
