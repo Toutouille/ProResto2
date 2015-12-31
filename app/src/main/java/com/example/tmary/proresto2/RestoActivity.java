@@ -26,7 +26,6 @@ public class RestoActivity extends Activity {
     private int id_resto_choisi_int;
     private Restaurant RestoChoisi;
 
-    public final static String Extra_message ="id_resto_choisi";
     /**
      * That will provide fragments for each of the sections. We use a
      * FragmentPagerAdapter derivative, which will keep every
@@ -68,25 +67,25 @@ public class RestoActivity extends Activity {
                 case "m3":  // RUA
                     id_resto_choisi_int = 3;
                     break;
-                case "m4":  // Burger
+                case "m4":  // Atelier du Burger
                     id_resto_choisi_int = 4;
                     break;
-                case "m5":  //
+                case "m5":  // A contre sens
                     id_resto_choisi_int = 5;
                     break;
-                case "m6":  //
+                case "m6":  // Le bistrot 102
                     id_resto_choisi_int = 6;
                     break;
-                case "m7":  //
+                case "m7":  // La cave à huitres
                     id_resto_choisi_int = 7;
                     break;
-                case "m8":  //
+                case "m8":  // Anouche
                     id_resto_choisi_int = 8;
                     break;
-                case "m9":  //
+                case "m9":  // Burger street
                     id_resto_choisi_int = 9;
                     break;
-                case "m10":  //
+                case "m10":  // Le sans gène
                     id_resto_choisi_int = 10;
                     break;
                 case "m11":  //
@@ -115,10 +114,11 @@ public class RestoActivity extends Activity {
         // Start BookActivity for the selected restaurant
         Intent intent = new Intent(RestoActivity.this, BookActivity.class);
         //On créer un objet Bundle, c'est ce qui va nous permettre d'envoyer des données à l'autre Activity
-        Bundle objetbunble = new Bundle();
-        objetbunble.putInt(Extra_message, id_resto_choisi_int);
+        //Bundle objetbunble = new Bundle();
+        //objetbunble.putInt(Extra_message, id_resto_choisi_int);
         //On affecte à l'Intent le Bundle que l'on a créé
-        intent.putExtras(objetbunble);
+        //TODO : Résoudre le problème d'éaffectation de la variable id_resto_choisi_int
+        intent.putExtra("int_selected_resto", id_resto_choisi_int);
         startActivity(intent);
     }
 

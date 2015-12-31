@@ -1,8 +1,11 @@
 package com.example.tmary.proresto2;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -11,6 +14,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+
 /**
  * Created by tmary on 12/11/15.
  */
@@ -18,6 +22,9 @@ public class BookActivity extends Activity {
 
     Spinner spin_selected_resto;
     String selected_resto;
+    String selected_date;
+    String selected_time;
+    String selected_nb_persons;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,28 +32,19 @@ public class BookActivity extends Activity {
         setContentView(R.layout.activity_book);
 
         Intent intent = getIntent();
-        String resto_choisi_liste = intent.getStringExtra(RestoActivity.Extra_message);
+        int int_selected_resto = 1;
+        int_selected_resto = intent.getIntExtra("int_selected_resto", 1);
 
         spin_selected_resto = (Spinner) findViewById((R.id.id_spinner_selected_resto));
-        //TODO : Résoudre le passage des arguments pour sélectionner le bon resto.
-        //if(resto_choisi_liste.equals("m2")) spin_selected_resto.setSelection(2);
-        //if(resto_choisi_liste.equals("m3")) spin_selected_resto.setSelection(3);
-        //if(resto_choisi_liste.equals("m4")) spin_selected_resto.setSelection(4);
-        //if(resto_choisi_liste.equals("m5")) spin_selected_resto.setSelection(5);
-        //if(resto_choisi_liste.equals("m6")) spin_selected_resto.setSelection(6);
-        //if(resto_choisi_liste.equals("m7")) spin_selected_resto.setSelection(7);
-        //if(resto_choisi_liste.equals("m8")) spin_selected_resto.setSelection(8);
-        //if(resto_choisi_liste.equals("m9")) spin_selected_resto.setSelection(9);
-       // if(resto_choisi_liste.equals("m10")) spin_selected_resto.setSelection(10);
-
+        spin_selected_resto.setSelection(int_selected_resto);
         selected_resto = String.valueOf(spin_selected_resto.getSelectedItem());
 
         EditText editText_selected_date = (EditText)findViewById(R.id.id_editText_date);
-        String selected_date = editText_selected_date.getText().toString();
+        selected_date = editText_selected_date.getText().toString();
         EditText editText_selected_time = (EditText)findViewById(R.id.id_editText_time);
-        String selected_time = editText_selected_time.getText().toString();
+        selected_time = editText_selected_time.getText().toString();
         EditText editText_selected_nb_persons = (EditText)findViewById(R.id.id_editText_nb_persons);
-        String selected_nb_persons = editText_selected_nb_persons.getText().toString();
+        selected_nb_persons = editText_selected_nb_persons.getText().toString();
 
 
     }
@@ -54,21 +52,48 @@ public class BookActivity extends Activity {
     public void onClickButtonBook(View v){
         Log.v("onClickButtonBook", "OK");
         // TODO : Test des conditions pour la réservation
+        // TODO : Résourdre le problème de sauvegarde des données
 
+        // Concatenate the data of the reservation into one single string
+        String string_resa = selected_resto + "#" + selected_date + "#" + selected_time +"#" + selected_nb_persons + ".";
+
+        // Open shared preferences editor
+        SharedPreferences preferences = this.getSharedPreferences("com.example.tmary.proresto2", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+
+        // Search if there is already some existing reservations
+        String resa = preferences.getString("RESERVAION_SAVE", "NULL");
+
+        // If it does, concatenate the existing string with the new one.
+        if(resa != "NULL")
+        {
+            resa = resa + string_resa;
+        }
+
+        // If not create a new string conaining only the new reservation
+        else
+        {
+            resa = string_resa;
+        }
+
+        // Commit change
+        editor.clear();
+        editor.putString("RESERVAION_SAVE", resa);
+        editor.commit();
+
+        // Make a toast for the good saving of the data
         Toast.makeText(this, "Réservation effectuée", Toast.LENGTH_SHORT).show();
-        // Switch vers l'activité My reservations après avoir effectué une réservation
+
+        // Switch to My reservations activity
         Intent intent = new Intent(BookActivity.this, ReservationsActivity.class);
         startActivity(intent);
     }
+
+
     public void onClickButtonMyReservations(View view) {
         Log.v("onClickButtonRes", "OK");
-        // Start BookActivity for the selected restaurant
+        // Start ReservationActivity
         Intent intent = new Intent(BookActivity.this, ReservationsActivity.class);
-        //On créer un objet Bundle, c'est ce qui va nous permettre d'envoyer des données à l'autre Activity
-        //Bundle objetbunble = new Bundle();
-        //objetbunble.putInt("id_resto_choisi", id_resto_choisi_int);
-        //On affecte à l'Intent le Bundle que l'on a créé
-        //intent.putExtras(objetbunble);
         startActivity(intent);
     }
 

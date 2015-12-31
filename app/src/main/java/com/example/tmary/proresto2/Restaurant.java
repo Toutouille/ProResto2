@@ -26,7 +26,6 @@ public class Restaurant {
     private ImageView imageView;
     private Schedule MySchedule;
 
-
     protected Context context;
 
     public Restaurant(Context context, int id, boolean mapsActivity) {

@@ -91,16 +91,16 @@
 
     <!--    Array-list of restaurant's title    -->
     <string-array name="array_resto_title">
-        <item></item>
-        <item>@string/title_resto_dollys</item>
-        <item>@string/title_resto_rua</item>
-        <item>@string/title_resto_atelier_burger</item>
-        <item>@string/title_resto_a_contre_sens</item>
-        <item>@string/title_resto_le_bistrot_102</item>
-        <item>@string/title_resto_cave_a_huitres</item>
-        <item>@string/title_resto_anouche</item>
-        <item>@string/title_resto_burger_street</item>
-        <item>@string/title_resto_le_sans_gene</item>
+        <item></item>                                   // 1
+        <item>@string/title_resto_dollys</item>         // 2
+        <item>@string/title_resto_rua</item>            // 3
+        <item>@string/title_resto_atelier_burger</item> // 4
+        <item>@string/title_resto_a_contre_sens</item>  // 5
+        <item>@string/title_resto_le_bistrot_102</item> // 6
+        <item>@string/title_resto_cave_a_huitres</item> // 7
+        <item>@string/title_resto_anouche</item>        // 8
+        <item>@string/title_resto_burger_street</item>  // 9
+        <item>@string/title_resto_le_sans_gene</item>   // 10
 
     </string-array>
 
@@ -189,6 +189,10 @@ Vous avez la possibilité de manger sur place ou de les emporter ! A bientôt à
     <string name="text_select_nb_person">Nombre de personnes :</string>
     <string name="button_my_reservations">Mes réservations</string>
 
+    <!--    Relative to activity_reservations.xml   -->
+    <string name="Title_reservation_activity">My Reservations</string>
+
+
     <!--    Permissions    -->
     <string name="permission_rationale_location">Access to the location service is required to demonstrate the \’my location\’ feature, which shows your current location on the map.</string>
     <string name="location_permission_denied">This sample requires location permission to enable the \’my location\’ layer. Please try again and grant access to use the location.\nIf the permission has been permanently denied, it can be enabled from the System Settings &gt; Apps &gt; \’Google Maps API Demos\’.</string>
@@ -251,5 +255,6 @@ Vous avez la possibilité de manger sur place ou de les emporter ! A bientôt à
     <string name="pref_ringtone_silent">Silent</string>
     <string name="pref_title_vibrate">Vibrate</string>
     <string name="section_format">%1$d</string>
+
 
 </resources>
