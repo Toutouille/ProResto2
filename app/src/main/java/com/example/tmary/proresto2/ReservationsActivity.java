@@ -4,19 +4,22 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * Created by Tristan on 23/12/2015.
  */
 public class ReservationsActivity extends Activity{
 
-    public String RESERVATION_SAVE;
-    public String str_resa = "";
+    public static final String PREFERENCES = "preferences";
+    public static final String RESERVAION_SAVE = "saveKey";
+    public static String str_resa = "";
+    SharedPreferences preferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,29 +27,43 @@ public class ReservationsActivity extends Activity{
         setContentView(R.layout.activity_reservations);
 
         // Open shared preferences editor
-        SharedPreferences preferences = this.getSharedPreferences("com.example.tmary.proresto2", Context.MODE_PRIVATE );
+        preferences = getSharedPreferences(PREFERENCES, Context.MODE_PRIVATE);
 
         // Try to get existing reservations
-        RESERVATION_SAVE = preferences.getString("RESERVAION_SAVE", "NULL");
+        String resa = preferences.getString(RESERVAION_SAVE, "NULL");
+        Log.v("reservation", resa);
 
         // If there is no reservation
-        if(RESERVATION_SAVE == "NULL")
+        if(resa.equals("NULL"))
         {
-            str_resa = " No reservations";
+            str_resa = " Aucune réservations";
         }
 
+        // If there is some existing reservations
         else
         {
-            String[] string_resa_splited = RESERVATION_SAVE.split(".");
-            for(int i=0; i<string_resa_splited.length; i++)
-            {
-                String[] string_resa_splited_twice = string_resa_splited[i].split("#");
-                str_resa = str_resa + string_resa_splited_twice[0] + " the " + string_resa_splited_twice[1] + " at " + string_resa_splited_twice[2] + " for " + string_resa_splited_twice[3] + " persons\n";
-            }
+            str_resa = resa;
         }
+
+        // Print all resarvations in the editText
         TextView myTextView = (TextView) findViewById(R.id.id_text_all_reservations);
         myTextView.setText(str_resa);
 
+    }
+
+    public void onClickButtonClearReservations(View v){
+
+        // Delete the String containing all the reservations data
+        preferences = getSharedPreferences(PREFERENCES, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.remove(RESERVAION_SAVE);
+        editor.apply();
+
+        // Make a toast
+        Toast.makeText(this, "Suppression effectuée", Toast.LENGTH_SHORT).show();
+
+        // Restart the activity for refreshing the data displayed
+        recreate();
     }
 
 

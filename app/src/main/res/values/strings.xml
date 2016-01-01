@@ -190,7 +190,8 @@ Vous avez la possibilité de manger sur place ou de les emporter ! A bientôt à
     <string name="button_my_reservations">Mes réservations</string>
 
     <!--    Relative to activity_reservations.xml   -->
-    <string name="Title_reservation_activity">My Reservations</string>
+    <string name="Title_reservation_activity">Mes Réservations</string>
+    <string name="Button_clear_reservation">Supprimer toutes mes réservations</string>
 
 
     <!--    Permissions    -->

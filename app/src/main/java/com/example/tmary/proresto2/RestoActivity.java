@@ -117,7 +117,9 @@ public class RestoActivity extends Activity {
         //Bundle objetbunble = new Bundle();
         //objetbunble.putInt(Extra_message, id_resto_choisi_int);
         //On affecte à l'Intent le Bundle que l'on a créé
-        //TODO : Résoudre le problème d'éaffectation de la variable id_resto_choisi_int
+
+        //TODO : Solve the problem of passing argument to the reservation activity
+
         intent.putExtra("int_selected_resto", id_resto_choisi_int);
         startActivity(intent);
     }
