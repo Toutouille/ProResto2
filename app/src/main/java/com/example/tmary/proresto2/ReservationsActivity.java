@@ -1,7 +1,9 @@
 package com.example.tmary.proresto2;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,6 +12,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.ArrayList;
+
 
 /**
  * Created by Tristan on 23/12/2015.
@@ -31,7 +36,6 @@ public class ReservationsActivity extends Activity{
 
         // Try to get existing reservations
         String resa = preferences.getString(RESERVAION_SAVE, "NULL");
-        Log.v("reservation", resa);
 
         // If there is no reservation
         if(resa.equals("NULL"))
@@ -53,18 +57,108 @@ public class ReservationsActivity extends Activity{
 
     public void onClickButtonClearReservations(View v){
 
-        // Delete the String containing all the reservations data
+        // Get reservations
         preferences = getSharedPreferences(PREFERENCES, Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = preferences.edit();
-        editor.remove(RESERVAION_SAVE);
-        editor.apply();
+        String resa = preferences.getString(RESERVAION_SAVE, "NULL");
+        Log.v("resa", resa);
 
-        // Make a toast
-        Toast.makeText(this, "Suppression effectuée", Toast.LENGTH_SHORT).show();
+        // If there is none
+        if(resa.equals("NULL"))
+        {
+            Toast.makeText(this, "Aucune réservation à annuler", Toast.LENGTH_SHORT).show();
+        }
 
-        // Restart the activity for refreshing the data displayed
-        recreate();
+        // If there is some
+        else
+        {
+            // Split the string of all the reservations into multiple string containing each one reservation
+            final String[] parts = resa.split("\\n\\n");
+
+            // This contain the actual reservations
+            CharSequence[] list_reservations = new CharSequence[parts.length];
+            for(int i=0; i<parts.length; i++)
+            {
+                list_reservations[i] = parts[i];
+            }
+
+            // this array will contain the selected item
+            final ArrayList mSelectedItems = new ArrayList();
+
+            // Create à dialog for selected reservations to cancel
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle("Annuler des réservations");
+            builder.setMultiChoiceItems(list_reservations, null, new DialogInterface.OnMultiChoiceClickListener(){
+                @Override
+                public void onClick(DialogInterface dialog, int which,
+                                    boolean isChecked) {
+                    if (isChecked) {
+                        // If the user checked the item, add it to the selected items
+                        mSelectedItems.add(which);
+                    } else if (mSelectedItems.contains(which)) {
+                        // Else, if the item is already in the array, remove it
+                        mSelectedItems.remove(Integer.valueOf(which));
+                    }
+                }
+
+            });
+
+            // Set a button for cancel reservations
+            builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
+                    // Delete the selected items
+
+                    // Recreate the string without the part the user delete
+                    String resa_final = "";
+                    Object[] mStringArray = mSelectedItems.toArray();
+                    int mStringArray_length = mStringArray.length;
+                    int ok;
+                    for (int i = 0; i < parts.length; i++) {
+                        ok = 1;
+
+                        for (int j = 0; j < mStringArray_length; j++) {
+                            if (i == (int) mStringArray[j]) {
+                                ok = 0;
+                            }
+                        }
+
+                        if (ok == 1) {
+                            resa_final = resa_final + parts[i] + "\n\n";
+                        }
+                    }
+
+                    // If there is some reservations left
+
+                    // Delete the String containing all the reservations data
+                    preferences = getSharedPreferences(PREFERENCES, Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = preferences.edit();
+                    editor.remove(RESERVAION_SAVE);
+                    if (!resa_final.equals(""))
+                    {
+                        editor.putString(RESERVAION_SAVE, resa_final);
+                    }
+                    editor.apply();
+
+                    // Restart the activity for refreshing the data displayed
+                    recreate();
+                }
+            });
+
+            // Set a button for go back
+            builder.setNegativeButton("Retour", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
+                    // Do nothing exepct close the dialog, which is done automatically
+                }
+            });
+
+
+            // Create and show this dialog
+            builder.create();
+            builder.show();
+        }
+
     }
+
+
 
 
     @Override

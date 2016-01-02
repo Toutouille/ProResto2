@@ -23,7 +23,7 @@ public class RestoActivity extends Activity {
 
 
     private static String id_resto_choisi;
-    private int id_resto_choisi_int;
+    private static int id_resto_choisi_int;
     private Restaurant RestoChoisi;
 
     /**
@@ -120,6 +120,7 @@ public class RestoActivity extends Activity {
 
         //TODO : Solve the problem of passing argument to the reservation activity
 
+        Log.v("argument", String.valueOf(id_resto_choisi_int));
         intent.putExtra("int_selected_resto", id_resto_choisi_int);
         startActivity(intent);
     }
