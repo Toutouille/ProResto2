@@ -175,6 +175,10 @@ public class ReservationsActivity extends Activity{
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
+        if(id == R.id.action_settings)
+        {
+            Toast.makeText(this, "Non implémenté", Toast.LENGTH_SHORT).show();
+        }
         return super.onOptionsItemSelected(item);
     }
 }

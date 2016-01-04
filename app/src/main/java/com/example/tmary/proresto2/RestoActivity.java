@@ -12,6 +12,7 @@ import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,6 +26,7 @@ public class RestoActivity extends Activity {
     private static String id_resto_choisi;
     private static int id_resto_choisi_int;
     private Restaurant RestoChoisi;
+    int flag_favori = 0;
 
     /**
      * That will provide fragments for each of the sections. We use a
@@ -110,6 +112,7 @@ public class RestoActivity extends Activity {
     }
     public void onClickButtonReserver(View view) {
         Log.v("onClickButtonReserver", "OK");
+        Log.v("argument", String.valueOf(id_resto_choisi_int));
         Toast.makeText(this, "OK, réservons !", Toast.LENGTH_SHORT).show();
         // Start BookActivity for the selected restaurant
         Intent intent = new Intent(RestoActivity.this, BookActivity.class);
@@ -120,7 +123,6 @@ public class RestoActivity extends Activity {
 
         //TODO : Solve the problem of passing argument to the reservation activity
 
-        Log.v("argument", String.valueOf(id_resto_choisi_int));
         intent.putExtra("int_selected_resto", id_resto_choisi_int);
         startActivity(intent);
     }
@@ -139,9 +141,29 @@ public class RestoActivity extends Activity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
+        // If button setting clicked
+        if (id == R.id.action_settings)
+        {
+            Toast.makeText(this, "Non implémenté", Toast.LENGTH_SHORT).show();
+            return true;
+        }
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        // if button like clicked
+        if (id == R.id.action_like)
+        {
+            // Toggle icon when start is pressed
+            if(flag_favori == 0)
+            {
+                item.setIcon(R.drawable.rate_star_big_on_holo_light);
+                Toast.makeText(this, "Favori ajouté", Toast.LENGTH_SHORT).show();
+                flag_favori = 1;
+            }
+            else
+            {
+                item.setIcon(R.drawable.rate_star_big_off_holo_light);
+                Toast.makeText(this, "Favori supprimé", Toast.LENGTH_SHORT).show();
+                flag_favori = 0;
+            }
             return true;
         }
 

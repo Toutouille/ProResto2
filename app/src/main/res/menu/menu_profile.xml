@@ -4,10 +4,9 @@
       xmlns:tools="http://schemas.android.com/tools"
       tools:context=".ProfileActivity">
 
-      <!-- Unused item : the AppTheme style can't display it -->
       <item android:id="@+id/action_settings"
-            android:title="@string/action_settings"
-            android:orderInCategory="100"
-            app:showAsAction="never"/>
+          android:icon="@android:drawable/ic_menu_preferences"
+          android:title="@string/action_settings"
+          android:showAsAction="always"/>
 
 </menu>

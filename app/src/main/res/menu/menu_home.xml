@@ -3,10 +3,9 @@
       xmlns:tools="http://schemas.android.com/tools"
       tools:context=".Home">
 
-    <!-- Unused item : the AppTheme style can't display it -->
     <item android:id="@+id/action_settings"
-          android:title="@string/action_settings"
-          android:icon="@android:drawable/ic_menu_crop"
-          app:showAsAction="never"/>
+        android:icon="@android:drawable/ic_menu_preferences"
+        android:title="@string/action_settings"
+        android:showAsAction="always"/>
 
 </menu>
