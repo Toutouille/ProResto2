@@ -4,7 +4,10 @@ package com.example.tmary.proresto2;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.drawable.Drawable;
 import android.support.v13.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
@@ -26,7 +29,8 @@ public class RestoActivity extends Activity {
     private static String id_resto_choisi;
     private static int id_resto_choisi_int;
     private Restaurant RestoChoisi;
-    int flag_favori = 0;
+    public static final String FAVORI_PREF = "favori_pref";
+    public static final String FAVORI_SAVE = "favoriKey";
 
     /**
      * That will provide fragments for each of the sections. We use a
@@ -38,7 +42,7 @@ public class RestoActivity extends Activity {
     /**
      * That will host the section contents.
      */
-    private ViewPager mViewPager;
+    private static ViewPager mViewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -111,8 +115,7 @@ public class RestoActivity extends Activity {
         Toast.makeText(this, "Affichage du Menu", Toast.LENGTH_SHORT).show();
     }
     public void onClickButtonReserver(View view) {
-        Log.v("onClickButtonReserver", "OK");
-        Log.v("argument", String.valueOf(id_resto_choisi_int));
+
         Toast.makeText(this, "OK, réservons !", Toast.LENGTH_SHORT).show();
         // Start BookActivity for the selected restaurant
         Intent intent = new Intent(RestoActivity.this, BookActivity.class);
@@ -121,53 +124,9 @@ public class RestoActivity extends Activity {
         //objetbunble.putInt(Extra_message, id_resto_choisi_int);
         //On affecte à l'Intent le Bundle que l'on a créé
 
-        //TODO : Solve the problem of passing argument to the reservation activity
-
-        intent.putExtra("int_selected_resto", id_resto_choisi_int);
+        int page_selected = mViewPager.getCurrentItem();
+        intent.putExtra("page_selected", page_selected);
         startActivity(intent);
-    }
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_resto, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-        // If button setting clicked
-        if (id == R.id.action_settings)
-        {
-            Toast.makeText(this, "Non implémenté", Toast.LENGTH_SHORT).show();
-            return true;
-        }
-
-        // if button like clicked
-        if (id == R.id.action_like)
-        {
-            // Toggle icon when start is pressed
-            if(flag_favori == 0)
-            {
-                item.setIcon(R.drawable.rate_star_big_on_holo_light);
-                Toast.makeText(this, "Favori ajouté", Toast.LENGTH_SHORT).show();
-                flag_favori = 1;
-            }
-            else
-            {
-                item.setIcon(R.drawable.rate_star_big_off_holo_light);
-                Toast.makeText(this, "Favori supprimé", Toast.LENGTH_SHORT).show();
-                flag_favori = 0;
-            }
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
     }
 
 
@@ -235,6 +194,7 @@ public class RestoActivity extends Activity {
         public PlaceholderFragment() {
         }
 
+
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
@@ -242,7 +202,9 @@ public class RestoActivity extends Activity {
             TextView section_label, description, schedule;
             ImageView imageView;
             int pageSelected = getArguments().getInt(ARG_SECTION_NUMBER);
-            Log.v("RestoActivity", "Page Selected : "+ Integer.toString(pageSelected));
+
+            // Each page got his own menu
+            setHasOptionsMenu(true);
 
             // Choose the correct style of fragment. Depend of the tab
             if (pageSelected == 1) {
@@ -278,6 +240,121 @@ public class RestoActivity extends Activity {
 
             }
         }
+
+        @Override
+        public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+            // Inflate the menu; this adds items to the action bar if it is present.
+            inflater.inflate(R.menu.menu_resto, menu);
+
+            // Get favoris
+            SharedPreferences pref = this.getActivity().getSharedPreferences(FAVORI_PREF, Context.MODE_PRIVATE);
+            String favori_save = pref.getString(FAVORI_SAVE, "NULL");
+            int favori_tab[] = new int[10];
+            if(favori_save.equals("NULL"))
+            {
+                for(int i=0;i<10;i++)
+                {
+                    favori_tab[i] = 0;
+                }
+            }
+            else
+            {
+                String[] parts = favori_save.split(":");
+                for(int i=0; i<parts.length; i++)
+                {
+                    favori_tab[i] = Integer.parseInt(parts[i]);
+                }
+            }
+
+            // Get page number
+            int pageSelected = getArguments().getInt(ARG_SECTION_NUMBER);
+            Log.v("page selected", String.valueOf(pageSelected));
+
+            // Set the right star
+            if(favori_tab[pageSelected-1] == 1)
+            {
+                menu.getItem(0).setIcon(R.drawable.rate_star_big_on_holo_light);
+            }
+            else
+            {
+                menu.getItem(0).setIcon(R.drawable.rate_star_big_off_holo_light);
+            }
+
+            super.onCreateOptionsMenu(menu, inflater);
+        }
+
+        @Override
+        public boolean onOptionsItemSelected(MenuItem item) {
+            // Handle action bar item clicks here. The action bar will
+            // automatically handle clicks on the Home/Up button, so long
+            // as you specify a parent activity in AndroidManifest.xml.
+            int id = item.getItemId();
+            int pageSelected = getArguments().getInt(ARG_SECTION_NUMBER);
+
+            // If button setting clicked
+            if (id == R.id.action_settings)
+            {
+                Toast.makeText(super.getActivity(), "Non implémenté", Toast.LENGTH_SHORT).show();
+                return true;
+            }
+
+            // if button like clicked
+            if (id == R.id.action_like)
+            {
+                // Get favoris
+                SharedPreferences pref = this.getActivity().getSharedPreferences(FAVORI_PREF, Context.MODE_PRIVATE);
+                String favori_save = pref.getString(FAVORI_SAVE, "NULL");
+                int favori_tab[] = new int[10];
+                if(favori_save.equals("NULL"))
+                {
+                    for(int i=0;i<10;i++)
+                    {
+                        favori_tab[i] = 0;
+                    }
+                }
+                else
+                {
+                    String[] parts = favori_save.split(":");
+                    for(int i=0; i<parts.length; i++)
+                    {
+                        favori_tab[i] = Integer.parseInt(parts[i]);
+                    }
+                }
+
+                // Toggle icon when start is pressed
+                String str_favori_sav = "";
+                if(favori_tab[pageSelected-1] == 0)
+                {
+                    item.setIcon(R.drawable.rate_star_big_on_holo_light);
+                    Toast.makeText(super.getActivity(), "Favori ajouté", Toast.LENGTH_SHORT).show();
+
+                    // Save changes
+                    favori_tab[pageSelected-1] = 1;
+                }
+                else
+                {
+                    item.setIcon(R.drawable.rate_star_big_off_holo_light);
+                    Toast.makeText(super.getActivity(), "Favori supprimé", Toast.LENGTH_SHORT).show();
+
+                    // Save changes
+                    favori_tab[pageSelected-1] = 0;
+                }
+                for(int i=0;i<9;i++)
+                {
+                    str_favori_sav = str_favori_sav + String.valueOf(favori_tab[i]) + ":";
+                }
+                str_favori_sav = str_favori_sav + favori_tab[9];
+                Log.v("str_favori_sav", str_favori_sav);
+                SharedPreferences.Editor editor = pref.edit();
+                editor.remove(FAVORI_SAVE);
+                editor.putString(FAVORI_SAVE, str_favori_sav);
+                editor.apply();
+                return true;
+            }
+
+            return super.onOptionsItemSelected(item);
+        }
+
     }
 
 
