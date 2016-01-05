@@ -90,7 +90,7 @@
 
     <!--    Array-list of restaurant's title    -->
     <string-array name="array_resto_title">
-        <item></item>                                   // 1
+        <item>Select...</item>                          // 1
         <item>@string/title_resto_dollys</item>         // 2
         <item>@string/title_resto_rua</item>            // 3
         <item>@string/title_resto_atelier_burger</item> // 4

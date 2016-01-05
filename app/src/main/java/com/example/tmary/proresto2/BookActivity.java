@@ -37,11 +37,11 @@ public class BookActivity extends Activity {
 
         // Get the selected restaurant in the list of restaurant
         Intent intent = getIntent();
-        int page_selected = 1;
-        page_selected = intent.getIntExtra("page_selected", 1);
+        int page_selected = 0;
+        page_selected = intent.getIntExtra("page_selected", 0);
 
         spin_selected_resto = (Spinner) findViewById((R.id.id_spinner_selected_resto));
-        spin_selected_resto.setSelection(page_selected+1);
+        spin_selected_resto.setSelection(page_selected);
         selected_resto = String.valueOf(spin_selected_resto.getSelectedItem());
 
         EditText editText_selected_date = (EditText)findViewById(R.id.id_editText_date);
@@ -119,7 +119,7 @@ public class BookActivity extends Activity {
     public int reservationTest(String resto, String date, String time, String nbpersons)
     {
         // No restaurant selected
-        if(resto.equals(""))
+        if(resto.equals("Select..."))
         {
             Toast.makeText(this, "Veuillez sélectionner un restaurant", Toast.LENGTH_SHORT).show();
             return 0;
