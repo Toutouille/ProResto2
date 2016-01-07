@@ -7,6 +7,7 @@ import android.app.FragmentManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.ActivityInfo;
 import android.graphics.drawable.Drawable;
 import android.support.v13.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -112,7 +113,7 @@ public class RestoActivity extends Activity {
 
     public void onClickButtonMenu(View v){
         Log.v("onClickButtonMenu", "OK");
-        Toast.makeText(this, "Affichage du Menu", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Affichage du Menu... ou pas!", Toast.LENGTH_SHORT).show();
     }
     public void onClickButtonReserver(View view) {
 
@@ -203,6 +204,8 @@ public class RestoActivity extends Activity {
             ImageView imageView;
             int pageSelected = getArguments().getInt(ARG_SECTION_NUMBER);
 
+            // Lock on portrait orientation
+            this.getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
             // Each page got his own menu
             setHasOptionsMenu(true);
 

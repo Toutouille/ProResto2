@@ -10,7 +10,7 @@
 
     <!--    Relative to all Activities    -->
     <string name="title_activity_book">Réserver un restaurant</string>
-    <string name="title_activity_order">Commander des plats</string>
+    <string name="title_activity_order">ProResto Infos</string>
     <string name="title_activity_map">Lieu des restaurants</string>
     <string name="title_activity_maps">Lieu des restaurants</string>
     <string name="title_activity_profile">Modifier son profile</string>
@@ -18,7 +18,7 @@
     <string name="title_activity_reservations">Mes réservations</string>
 
     <string name="text_button_book">Réserver</string>
-    <string name="text_button_order">Commander</string>
+    <string name="text_button_order">ProResto Info</string>
     <string name="text_button_map">Carte</string>
     <string name="text_button_profile">Profile</string>
     <string name="text_button_resto">Restaurants</string>
@@ -104,9 +104,9 @@
     </string-array>
 
     <!--    List of Restaurants’ Title     -->
-    <string name="title_resto_dollys">Dolly\’s</string>
+    <string name="title_resto_dollys">Dolly’s</string>
     <string name="title_resto_rua">Restaurant Universitaire</string>
-    <string name="title_resto_atelier_burger">L\’atelier du burger</string>
+    <string name="title_resto_atelier_burger">L’atelier du burger</string>
     <string name="title_resto_a_contre_sens">A contre sens</string>
     <string name="title_resto_le_bistrot_102">Le bistrot 102</string>
     <string name="title_resto_cave_a_huitres">La cave à Huitres</string>
@@ -192,6 +192,10 @@ Vous avez la possibilité de manger sur place ou de les emporter ! A bientôt à
     <string name="Title_reservation_activity">Mes Réservations</string>
     <string name="Button_clear_reservation">Annuler une réservation</string>
 
+    <!--    Relative to activity_order.xml   -->
+    <string name="order_title">Créateurs de ProResto</string>
+    <string name="text_creation">Pierre Marzin et Tristan Mary sont les deux développeurs de cette application.\n\nElle fut créée dans le but de prendre en main le langage android.\n\nN\'hesitez pas à noter cette application!</string>
+    <string name="text_appetit">Bon appétit !</string>
 
     <!--    Relative to Menus   -->
     <string name="action_settings">Settings</string>
