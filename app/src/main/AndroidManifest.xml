@@ -29,7 +29,7 @@
         </activity>
         <activity
             android:name=".OrderActivity"
-            android:icon="@drawable/ic_order"
+            android:icon="@drawable/logo_men"
             android:label="@string/title_activity_order" >
         </activity>
         <activity

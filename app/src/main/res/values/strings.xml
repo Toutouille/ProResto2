@@ -10,7 +10,7 @@
 
     <!--    Relative to all Activities    -->
     <string name="title_activity_book">Réserver un restaurant</string>
-    <string name="title_activity_order">ProResto Infos</string>
+    <string name="title_activity_order">Infos</string>
     <string name="title_activity_map">Lieu des restaurants</string>
     <string name="title_activity_maps">Lieu des restaurants</string>
     <string name="title_activity_profile">Modifier son profile</string>
