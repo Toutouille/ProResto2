@@ -21,14 +21,13 @@ public class Home extends Activity {
         final LinearLayout LayoutBookClick = (LinearLayout) findViewById(R.id.LayoutBook);
         final LinearLayout LayoutOrderClick = (LinearLayout) findViewById(R.id.LayoutOrder);
         final LinearLayout LayoutMapClick = (LinearLayout) findViewById(R.id.LayoutMap);
-        final LinearLayout LayoutProfileClick = (LinearLayout) findViewById(R.id.LayoutResto);
         final LinearLayout LayoutRestoClick = (LinearLayout) findViewById(R.id.LayoutResto);
-        final LinearLayout LayoutSettingsClick = (LinearLayout) findViewById(R.id.action_settings);
 
         LayoutBookClick.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // START BOOK ACTIVITY
+                Log.v("Home", "Book");
                 Intent intent = new Intent(Home.this, BookActivity.class);
                 startActivity(intent);
             }
@@ -38,6 +37,7 @@ public class Home extends Activity {
             @Override
             public void onClick(View view) {
                 // START ORDER ACTIVITY
+                Log.v("Home", "Order");
                 Intent intent = new Intent(Home.this, OrderActivity.class);
                 startActivity(intent);
             }
@@ -47,16 +47,8 @@ public class Home extends Activity {
             @Override
             public void onClick(View view) {
                 // START MAP ACTIVITY
+                Log.v("Home", "Map");
                 Intent intent = new Intent(Home.this, MapsActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        LayoutProfileClick.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // START PROFILE ACTIVITY
-                Intent intent = new Intent(Home.this, SettingsActivity.class);
                 startActivity(intent);
             }
         });
@@ -65,21 +57,11 @@ public class Home extends Activity {
             @Override
             public void onClick(View view) {
                 // START RESTO ACTIVITY
+                Log.v("Home", "RestoHome");
                 Intent intent = new Intent(Home.this, RestoActivity.class);
                 startActivity(intent);
             }
         });
-
-        //TODO: Solve the calling of the settings activity
-        /*LayoutSettingsClick.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // START SETTINGS ACTIVITY
-                Intent intent = new Intent(Home.this, SettingsActivity.class);
-                startActivity(intent);
-            }
-        });*/
-
     }
 
     @Override
@@ -98,7 +80,10 @@ public class Home extends Activity {
 
         if(id == R.id.action_settings)
         {
-            Toast.makeText(this, "Non implémenté", Toast.LENGTH_SHORT).show();
+            Log.v("Home", "RestoHome");
+            // START SETTINGS ACTIVITY
+            Intent intent = new Intent(Home.this, SettingsActivity.class);
+            startActivity(intent);
         }
 
         return super.onOptionsItemSelected(item);
