@@ -81,7 +81,7 @@ public class Restaurant {
                     Position = new LatLng(49.184814, -0.358933);
                     colorIcon = BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN);
                 }
-                MySchedule = new Schedule("12h00 - 14h30\t19h - 11h30");
+                MySchedule = new Schedule("12h00 - 14h30\t19h - 23h30");
                 break;
 
             case 5: // A contre sens
