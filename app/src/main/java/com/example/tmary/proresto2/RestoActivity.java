@@ -1,6 +1,7 @@
 package com.example.tmary.proresto2;
 
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
@@ -8,7 +9,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
-import android.graphics.drawable.Drawable;
 import android.support.v13.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
@@ -64,43 +64,46 @@ public class RestoActivity extends Activity {
         if (b != null) {
             // On récupère l'id du resto choisi
             id_resto_choisi = b.getString("id_resto_choisi");
-            switch(id_resto_choisi) {
-                case "m1":  // ENSICAEN
-                    id_resto_choisi_int = 1;
-                    break;
-                case "m2":  // Dolly's
-                    id_resto_choisi_int = 2;
-                    break;
-                case "m3":  // RUA
-                    id_resto_choisi_int = 3;
-                    break;
-                case "m4":  // Atelier du Burger
-                    id_resto_choisi_int = 4;
-                    break;
-                case "m5":  // A contre sens
-                    id_resto_choisi_int = 5;
-                    break;
-                case "m6":  // Le bistrot 102
-                    id_resto_choisi_int = 6;
-                    break;
-                case "m7":  // La cave à huitres
-                    id_resto_choisi_int = 7;
-                    break;
-                case "m8":  // Anouche
-                    id_resto_choisi_int = 8;
-                    break;
-                case "m9":  // Burger street
-                    id_resto_choisi_int = 9;
-                    break;
-                case "m10":  // Le sans gène
-                    id_resto_choisi_int = 10;
-                    break;
-                case "m11":  //
-                    id_resto_choisi_int = 11;
-                    break;
-                case "m12":
-                    id_resto_choisi_int = 12;
-                    break;
+            if (id_resto_choisi != null)
+            {
+                switch(id_resto_choisi) {
+                    case "m1":  // ENSICAEN
+                        id_resto_choisi_int = 1;
+                        break;
+                    case "m2":  // Dolly's
+                        id_resto_choisi_int = 2;
+                        break;
+                    case "m3":  // RUA
+                        id_resto_choisi_int = 3;
+                        break;
+                    case "m4":  // Atelier du Burger
+                        id_resto_choisi_int = 4;
+                        break;
+                    case "m5":  // A contre sens
+                        id_resto_choisi_int = 5;
+                        break;
+                    case "m6":  // Le bistrot 102
+                        id_resto_choisi_int = 6;
+                        break;
+                    case "m7":  // La cave à huitres
+                        id_resto_choisi_int = 7;
+                        break;
+                    case "m8":  // Anouche
+                        id_resto_choisi_int = 8;
+                        break;
+                    case "m9":  // Burger street
+                        id_resto_choisi_int = 9;
+                        break;
+                    case "m10":  // Le sans gène
+                        id_resto_choisi_int = 10;
+                        break;
+                    case "m11":  //
+                        id_resto_choisi_int = 11;
+                        break;
+                    case "m12":
+                        id_resto_choisi_int = 12;
+                        break;
+                }
             }
             RestoChoisi = new Restaurant(this.getApplicationContext(), id_resto_choisi_int, false);
             // On récupère la page correspondante
@@ -109,21 +112,31 @@ public class RestoActivity extends Activity {
         }
         // Pour sélectionner la bonne page
         mViewPager.setCurrentItem(pageSelected);
+        setupActionBar();
+
+    }
+
+    /**
+     * Set up the ActionBar
+     */
+    private void setupActionBar() {
+        ActionBar actionBar = getActionBar();
+        if (actionBar != null) {
+            // Show the Up button in the action bar.
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
     }
 
     public void onClickButtonMenu(View v){
         Log.v("onClickButtonMenu", "OK");
         Toast.makeText(this, "Affichage du Menu... ou pas!", Toast.LENGTH_SHORT).show();
     }
+
     public void onClickButtonReserver(View view) {
 
         Toast.makeText(this, "OK, réservons !", Toast.LENGTH_SHORT).show();
         // Start BookActivity for the selected restaurant
         Intent intent = new Intent(RestoActivity.this, BookActivity.class);
-        //On créer un objet Bundle, c'est ce qui va nous permettre d'envoyer des données à l'autre Activity
-        //Bundle objetbunble = new Bundle();
-        //objetbunble.putInt(Extra_message, id_resto_choisi_int);
-        //On affecte à l'Intent le Bundle que l'on a créé
 
         int page_selected = mViewPager.getCurrentItem();
         intent.putExtra("page_selected", page_selected);
@@ -355,9 +368,13 @@ public class RestoActivity extends Activity {
                 return true;
             }
 
+            if (id == android.R.id.home) {
+                startActivity(new Intent(getActivity(), Home.class));
+                return true;
+            }
+
             return super.onOptionsItemSelected(item);
         }
-
     }
 
 
