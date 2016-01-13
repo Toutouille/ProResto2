@@ -28,9 +28,9 @@
             android:label="@string/title_activity_book" >
         </activity>
         <activity
-            android:name=".OrderActivity"
+            android:name=".InfoActivity"
             android:icon="@drawable/logo_men"
-            android:label="@string/title_activity_order" >
+            android:label="@string/title_activity_info" >
         </activity>
         <activity
             android:name=".MapsActivity"

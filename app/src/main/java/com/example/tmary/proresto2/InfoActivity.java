@@ -16,20 +16,20 @@ import android.widget.Toast;
 /**
  * Created by tmary on 12/11/15.
  */
-public class OrderActivity extends Activity {
+public class InfoActivity extends Activity {
 
     private RatingBar ratingBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_order);
+        setContentView(R.layout.activity_info);
 
         ratingBar = (RatingBar) findViewById(R.id.ratingBar);
         ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
             public void onRatingChanged(RatingBar ratingBar, float rating,
                                         boolean fromUser) {
 
-                Toast.makeText(OrderActivity.this, "Merci de votre avis !", Toast.LENGTH_SHORT).show();
+                Toast.makeText(InfoActivity.this, "Merci de votre avis !", Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -39,7 +39,7 @@ public class OrderActivity extends Activity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_order, menu);
+        getMenuInflater().inflate(R.menu.menu_info, menu);
         return true;
     }
 

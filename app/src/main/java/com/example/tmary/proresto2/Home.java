@@ -19,7 +19,7 @@ public class Home extends Activity {
         setContentView(R.layout.activity_home);
 
         final LinearLayout LayoutBookClick = (LinearLayout) findViewById(R.id.LayoutBook);
-        final LinearLayout LayoutOrderClick = (LinearLayout) findViewById(R.id.LayoutOrder);
+        final LinearLayout LayoutInfoClick = (LinearLayout) findViewById(R.id.LayoutInfo);
         final LinearLayout LayoutMapClick = (LinearLayout) findViewById(R.id.LayoutMap);
         final LinearLayout LayoutRestoClick = (LinearLayout) findViewById(R.id.LayoutResto);
 
@@ -33,12 +33,12 @@ public class Home extends Activity {
             }
         });
 
-        LayoutOrderClick.setOnClickListener(new View.OnClickListener() {
+        LayoutInfoClick.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // START ORDER ACTIVITY
-                Log.v("Home", "Order");
-                Intent intent = new Intent(Home.this, OrderActivity.class);
+                Log.v("Home", "Info");
+                Intent intent = new Intent(Home.this, InfoActivity.class);
                 startActivity(intent);
             }
         });
