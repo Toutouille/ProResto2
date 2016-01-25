@@ -179,6 +179,10 @@ public class BookActivity extends Activity {
             Toast.makeText(this, "Non implémenté", Toast.LENGTH_SHORT).show();
         }
 
+        if (id == android.R.id.home) {
+            finish();
+            return true;
+        }
         return super.onOptionsItemSelected(item);
     }
 }
