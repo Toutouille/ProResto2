@@ -282,6 +282,9 @@ public class Restaurant {
             case 10:
                 imageView.setImageResource(R.drawable.logo_le_sans_gene);
                 break;
+            case 11:
+                imageView.setImageResource(R.drawable.logo_mary_marzin);
+                break;
         }
         return imageView;
     }
