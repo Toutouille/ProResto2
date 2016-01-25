@@ -26,7 +26,7 @@ import android.widget.Toast;
 
 public class RestoActivity extends Activity {
 
-
+    private static int nbRestos = Restaurant.NbRestos;
     private static String id_resto_choisi;
     private static int id_resto_choisi_int;
     private Restaurant RestoChoisi;
@@ -97,7 +97,7 @@ public class RestoActivity extends Activity {
                     case "m10":  // Le sans gène
                         id_resto_choisi_int = 10;
                         break;
-                    case "m11":  //
+                    case "m11":  // Chez Mary Marzin
                         id_resto_choisi_int = 11;
                         break;
                     case "m12":
@@ -164,7 +164,7 @@ public class RestoActivity extends Activity {
         @Override
         public int getCount() {
             // Show NbRestos total pages.
-            return Restaurant.NbRestos;
+            return nbRestos;
         }
 
         @Override
@@ -224,6 +224,7 @@ public class RestoActivity extends Activity {
 
             // Choose the correct style of fragment. Depend of the tab
             if (pageSelected == 1) {
+                //TODO: Solve the issue when We start this on landscape mode
                 rootView = inflater.inflate(R.layout.fragment_resto_home, container, false);
                 description = (TextView) rootView.findViewById(R.id.description);
 
@@ -265,10 +266,10 @@ public class RestoActivity extends Activity {
             // Get favoris
             SharedPreferences pref = this.getActivity().getSharedPreferences(FAVORI_PREF, Context.MODE_PRIVATE);
             String favori_save = pref.getString(FAVORI_SAVE, "NULL");
-            int favori_tab[] = new int[10];
+            int favori_tab[] = new int[nbRestos];
             if(favori_save.equals("NULL"))
             {
-                for(int i=0;i<10;i++)
+                for(int i=0;i<nbRestos;i++)
                 {
                     favori_tab[i] = 0;
                 }
@@ -320,10 +321,10 @@ public class RestoActivity extends Activity {
                 // Get favoris
                 SharedPreferences pref = this.getActivity().getSharedPreferences(FAVORI_PREF, Context.MODE_PRIVATE);
                 String favori_save = pref.getString(FAVORI_SAVE, "NULL");
-                int favori_tab[] = new int[10];
+                int favori_tab[] = new int[nbRestos];
                 if(favori_save.equals("NULL"))
                 {
-                    for(int i=0;i<10;i++)
+                    for(int i=0;i<nbRestos;i++)
                     {
                         favori_tab[i] = 0;
                     }
@@ -355,11 +356,11 @@ public class RestoActivity extends Activity {
                     // Save changes
                     favori_tab[pageSelected-1] = 0;
                 }
-                for(int i=0;i<9;i++)
+                for(int i=0;i<nbRestos-1;i++)
                 {
                     str_favori_sav = str_favori_sav + String.valueOf(favori_tab[i]) + ":";
                 }
-                str_favori_sav = str_favori_sav + favori_tab[9];
+                str_favori_sav = str_favori_sav + favori_tab[nbRestos-1];
                 Log.v("str_favori_sav", str_favori_sav);
                 SharedPreferences.Editor editor = pref.edit();
                 editor.remove(FAVORI_SAVE);
@@ -369,7 +370,7 @@ public class RestoActivity extends Activity {
             }
 
             if (id == android.R.id.home) {
-                startActivity(new Intent(getActivity(), Home.class));
+                getActivity().finish();     //getActivity() is necessary to go out of the fragment
                 return true;
             }
 
