@@ -5,7 +5,12 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="title_ensicaen">ENSICAEN</string>
-    <string name="description_ensicaen">Ce projet me permet d’apprendre à utiliser les divers fonctions d’Android et de coder une application capable d’offrir pas mal de possibilitées. Cette application à été créée sans aucun but particulier.</string>
+    <string name="description_ensicaen">A l’ENSICAEN, la vie étudiante est essentielle et fait partie intégrante de la formation dispensée pendant 3 ans.
+Le Bureau des élèves est chargé de l’animation de la vie étudiante et de la vie associative de l’établissement. De nombreuse activités sont organisées au sein de la cinquantaine de clubs et associations.
+Caen est une ville qui offre de multiples ressources en terme d’activités dans un environnement privilégié et une magnifique région !
+Plus de 50 clubs
+25 000 étudians à Caen
+Une vie étudiante unique !</string>
     <string name="snipet_ensicaen">Pas si mal que ça..!</string>
 
     <!--    Relative to all Activities    -->
@@ -18,7 +23,7 @@
     <string name="title_activity_reservations">Mes réservations</string>
 
     <string name="text_button_book">Réserver</string>
-    <string name="text_button_info">ProResto Info</string>
+    <string name="text_button_info">Info</string>
     <string name="text_button_map">Carte</string>
     <string name="text_button_profile">Profile</string>
     <string name="text_button_resto">Restaurants</string>
@@ -76,6 +81,11 @@
         <item>@string/description_resto_le_sans_gene</item>   <!-- Description -->
         <item>@string/snipet_resto_le_sans_gene</item> <!-- Snipet -->
     </string-array>
+    <string-array name="array_resto_mar">
+        <item>@string/title_resto_mar</item>   <!-- Name -->
+        <item>@string/description_resto_mar</item>   <!-- Description -->
+        <item>@string/snipet_resto_mar</item> <!-- Snipet -->
+    </string-array>
 
     <string-array name="array_schedule_days">
         <item>Lundi</item>
@@ -100,6 +110,7 @@
         <item>@string/title_resto_anouche</item>        // 8
         <item>@string/title_resto_burger_street</item>  // 9
         <item>@string/title_resto_le_sans_gene</item>   // 10
+        <item>@string/title_resto_mar</item>            // 11
 
     </string-array>
 
@@ -113,6 +124,7 @@
     <string name="title_resto_anouche">Anouche</string>
     <string name="title_resto_burger_street">Burger Street</string>
     <string name="title_resto_le_sans_gene">Le sans Gêne</string>
+    <string name="title_resto_mar">Chez Mary Marzin</string>
 
     <!--    List of Restaurants’ Snipet    -->
     <string name="snipet_resto_dollys">16 av de la Libération</string>
@@ -124,6 +136,7 @@
     <string name="snipet_resto_anouche">7 rue Samuel Bochard</string>
     <string name="snipet_resto_burger_street">13 rue Caponière</string>
     <string name="snipet_resto_le_sans_gene">2 rue du Vaugueux</string>
+    <string name="snipet_resto_mar">20 rue de l’inconnu</string>
 
     <!--    List of Restaurants’ Description    -->
     <string name="description_resto_none">Aucune description pour ce restaurant</string>
@@ -142,6 +155,7 @@ Vous avez la possibilité de manger sur place ou de les emporter ! A bientôt à
     <string name="description_resto_anouche">Restaurant arménien à base de produits frais et de plats 100% maison, Anouche est situé près du port de Caen.</string>
     <string name="description_resto_burger_street">Hamburgers faits maison et pain boulanger. Restauration rapide, sur place ou à emporter à Caen.</string>
     <string name="description_resto_le_sans_gene">Restaurant pas comme les autres formule unique tout compris :1 apéritif offert (sangria blanche) 1 café compris, le reste est à volonté entrées, plats, fromages, salades et desserts maison ,boissons incluses vin (avec modération) et sodas... Une particularité de notre établissement qu’il ne faut pas négliger est que le client est mis à contribution pour se servir et se faire cuire ses propres brochettes sur un barbecue géant...</string>
+    <string name="description_resto_mar">Venez découvrir cet incroyable Restaurant, le plus délicieux de ce monde. N’ayez pas peur d’etre surpris, osez franchir le pas de la porte et contemplez, goutez, rigolez "Chez Mary Marzin" !</string>
 
 
     <!--    Schedule string -->

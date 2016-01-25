@@ -1,5 +1,4 @@
 <android.support.v4.view.ViewPager xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:id="@+id/containerInfo"
     android:layout_width="match_parent" android:layout_height="match_parent"
-    tools:context="com.example.tmary.proresto2.InfoActivity"
-    android:background="@drawable/ic_font" />
+    tools:context="com.example.tmary.proresto2.InfoActivity" />
