@@ -1,11 +1,15 @@
 package com.example.tmary.proresto2;
 
 
+import android.Manifest;
+import android.app.ActionBar;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
+import android.view.MenuItem;
 import android.widget.Toast;
-
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -32,6 +36,7 @@ public class MapsActivity extends FragmentActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setupActionBar();
         setContentView(R.layout.activity_maps);
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
@@ -39,6 +44,17 @@ public class MapsActivity extends FragmentActivity
         mapFragment.getMapAsync(this);
     }
 
+
+    /**
+     * Set up the ActionBar
+     */
+    private void setupActionBar() {
+        ActionBar actionBar = getActionBar();
+        if (actionBar != null) {
+            // Show the Up button in the action bar.
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
+    }
 
     /**
      * Manipulates the map once available.
@@ -88,7 +104,9 @@ public class MapsActivity extends FragmentActivity
     private void enableMyLocation() {
         if (mMap != null) {
 
-            mMap.setMyLocationEnabled(true);
+            int permissionCheck = ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION);
+            if (permissionCheck == PackageManager.PERMISSION_GRANTED)
+                mMap.setMyLocationEnabled(true);
         }
     }
 
@@ -113,5 +131,15 @@ public class MapsActivity extends FragmentActivity
         intent.putExtras(objetbunble);
 
         startActivity(intent);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == android.R.id.home) {
+            this.finish();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
