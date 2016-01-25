@@ -9,7 +9,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
 public class Home extends Activity {
 
@@ -36,7 +35,7 @@ public class Home extends Activity {
         LayoutInfoClick.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // START ORDER ACTIVITY
+                // START INFO ACTIVITY
                 Log.v("Home", "Info");
                 Intent intent = new Intent(Home.this, InfoActivity.class);
                 startActivity(intent);
