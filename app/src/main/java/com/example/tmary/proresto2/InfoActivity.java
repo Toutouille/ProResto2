@@ -4,14 +4,10 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
-import android.content.Context;
-import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.v13.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -133,13 +129,13 @@ public class InfoActivity extends Activity {
             setHasOptionsMenu(true);
             rootView = inflater.inflate(R.layout.fragment_info, container, false);
 
-            /*ratingBar = (RatingBar) rootView.findViewById(R.id.ratingBar);
+            ratingBar = (RatingBar) rootView.findViewById(R.id.ratingBar);
             ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
                 public void onRatingChanged(RatingBar ratingBar, float rating,
                                             boolean fromUser) {
                     Toast.makeText(getActivity(), "Merci de votre avis !", Toast.LENGTH_SHORT).show();
                 }
-            });*/
+            });
 
             return rootView;
         }
@@ -154,19 +150,11 @@ public class InfoActivity extends Activity {
 
         @Override
         public boolean onOptionsItemSelected(MenuItem item) {
-            // Handle action bar item clicks here. The action bar will
-            // automatically handle clicks on the Home/Up button, so long
-            // as you specify a parent activity in AndroidManifest.xml.
-
             int id = item.getItemId();
-            String str = Integer.toString(id);
-            Log.v("INFO", "onOptionsItemSelected"+str);
             if (id == android.R.id.home) {
-                Toast.makeText(getActivity(), "Touché", Toast.LENGTH_SHORT);
-                startActivity(new Intent(getActivity(), Home.class));
+                getActivity().finish();
                 return true;
             }
-
             return super.onOptionsItemSelected(item);
         }
     }
