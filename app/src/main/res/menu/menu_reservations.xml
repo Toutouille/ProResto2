@@ -4,9 +4,5 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".BookActivity">
 
-    <item android:id="@+id/action_settings"
-        android:icon="@android:drawable/ic_menu_preferences"
-        android:title="@string/action_settings"
-        android:showAsAction="always"/>
 
 </menu>
