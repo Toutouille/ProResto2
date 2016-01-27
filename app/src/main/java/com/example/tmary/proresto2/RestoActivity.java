@@ -12,6 +12,7 @@ import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.preference.PreferenceManager;
 import android.support.v13.app.FragmentPagerAdapter;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
@@ -60,8 +61,28 @@ public class RestoActivity extends Activity {
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
-        mViewPager.setPageTransformer(true, new DepthPageTransformer());
 
+        //Reading the saved preferences
+        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
+        String transformChoice = sharedPref.getString(SettingsActivity.KEY_PREF_TRANSFORM, "");
+
+        Log.v("restoActivity", transformChoice);
+        switch(transformChoice)
+        {
+            case "1":
+                mViewPager.setPageTransformer(true, new ZoomOutPageTransformer());
+                break;
+            case "2":
+                mViewPager.setPageTransformer(true, new DepthPageTransformer());
+                break;
+            case "3":
+                mViewPager.setPageTransformer(true, new CustomPageTransformer());
+                break;
+            default:
+                break;
+        }
+
+        //mViewPager.setPageTransformer(true, new DepthPageTransformer());
         int pageSelected = 0;
         //On récupère les données du Bundle
         Bundle b = getIntent().getExtras();

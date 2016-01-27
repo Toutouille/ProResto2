@@ -195,8 +195,23 @@ Vous avez la possibilité de manger sur place ou de les emporter ! A bientôt à
 
 
     <!-- Strings related to Settings -->
-
     <string name="title_activity_settings">Settings</string>
+    <string name="pref_title_restaurant">Type de transition</string>
+    <string name="pref_title_transformation">Type de transition</string>
+    <string name="pref_description_transformation">Choisissez la transition entre les fiches des restaurants</string>
+    <string-array name="pref_list_title_transformChoice">
+        <item>Aucune</item>
+        <item>Zoom</item>
+        <item>Depth</item>
+        <item>Custom</item>
+    </string-array>
+    <string-array name="pref_list_values_transformChoice">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
 
     <!-- Example General settings -->
     <string name="pref_header_general">General</string>
