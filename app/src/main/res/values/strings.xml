@@ -160,38 +160,10 @@ Vous avez la possibilité de manger sur place ou de les emporter ! A bientôt à
 
     <!--    Schedule string -->
     <string name="resto_schedule_title">Horaire du restaurant</string>
-    <!--
-    <string name="resto_schedule_900">9h00</string>
-    <string name="resto_schedule_930">9h30</string>
-    <string name="resto_schedule_1000">10h00</string>
-    <string name="resto_schedule_1030">10h30</string>
-    <string name="resto_schedule_1100">11h</string>
-    <string name="resto_schedule_1130">11h30</string>
-    <string name="resto_schedule_1200">12h</string>
-    <string name="resto_schedule_1230">12h30</string>
-    <string name="resto_schedule_1300">13h</string>
-    <string name="resto_schedule_1330">13h30</string>
-    <string name="resto_schedule_1400">14h</string>
-    <string name="resto_schedule_1430">14h30</string>
-    <string name="resto_schedule_1500">15h</string>
-    <string name="resto_schedule_1600">16h</string>
-    <string name="resto_schedule_1700">17h</string>
-    <string name="resto_schedule_1800">18h</string>
-    <string name="resto_schedule_1900">19h</string>
-    <string name="resto_schedule_1930">19h30</string>
-    <string name="resto_schedule_2000">20h00</string>
-    <string name="resto_schedule_2030">20h30</string>
-    <string name="resto_schedule_2230">22h30</string>
-    <string name="resto_schedule_2300">23h</string>
-    <string name="resto_schedule_2330">23h30</string>
-    <string name="resto_schedule_000">0h00</string>
-    <string name="resto_schedule_030">0h30</string>
-    <string name="resto_schedule_100">1h00</string>
-    -->
 
 
      <!--    Relative to frament_resto.xml    -->
-    <string name="text_button_resto_menu">Menu</string>
+    <string name="text_button_resto_menu">Appeler</string>
     <string name="text_button_resto_reserve">Réserver</string>
     
     <!--    Relative to activity_book.xml  -->

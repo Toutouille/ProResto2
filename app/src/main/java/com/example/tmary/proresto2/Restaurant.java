@@ -24,6 +24,7 @@ public class Restaurant {
     private LatLng Position = new LatLng(49.184479, -0.359762); // Initialize to CAEN.
     private BitmapDescriptor colorIcon;
     private Schedule MySchedule;
+    private String phoneNumber= "";
 
     protected Context context;
 
@@ -43,6 +44,7 @@ public class Restaurant {
                     pageNum = 1;
                     description = context.getResources().getString(R.string.description_ensicaen);
                     MySchedule = new Schedule();
+                    phoneNumber = "";
                 }
                 break;
 
@@ -58,6 +60,7 @@ public class Restaurant {
                     pageNum = 2;
                     description = context.getResources().getStringArray(R.array.array_resto_dollys)[1];
                     MySchedule = new Schedule("11h - 18h", "10h00 - 19h", "10h00 - 22h30","10h00 - 22h30","10h00 - 22h30","10h00 - 22h30","10h00 - 22h30");
+                    phoneNumber = "0231940329";
                 }
 
                 break;
@@ -74,6 +77,7 @@ public class Restaurant {
                     pageNum = 3;
                     description = context.getResources().getStringArray(R.array.array_resto_rua)[1];
                     MySchedule = new Schedule("11h30 - 13h30\t18h30 - 20h" ,"11h30 - 13h30\t18h30 - 20h" ,"11h30 - 13h30\t18h30 - 20h" ,"11h30 - 13h30\t18h30 - 20h" ,"11h30 - 13h30" ,"Fermé", "Fermé");
+                    phoneNumber = "";
                 }
 
                 break;
@@ -90,6 +94,7 @@ public class Restaurant {
                     pageNum = 4;
                     description = context.getResources().getStringArray(R.array.array_resto_atelier_burger)[1];
                     MySchedule = new Schedule("12h00 - 14h30\t19h - 23h30");
+                    phoneNumber = "0950643712";
                 }
 
                 break;
@@ -106,6 +111,7 @@ public class Restaurant {
                     pageNum = 5;
                     description = context.getResources().getStringArray(R.array.array_resto_a_contre_sens)[1];
                     MySchedule = new Schedule("Fermé" , "19h30 - 21h15", "12h00 - 13h15\t19h30 - 21h15", "12h00 - 13h15\t19h30 - 21h15", "12h00 - 13h15\t19h30 - 21h15", "12h00 - 13h15\t19h30 - 21h15", "Fermé");
+                    phoneNumber = "0231974448";
                 }
 
                 break;
@@ -122,6 +128,7 @@ public class Restaurant {
                     pageNum = 6;
                     description = context.getResources().getStringArray(R.array.array_resto_le_bistrot_102)[1];
                     MySchedule = new Schedule("Fermé" , "12h - 14h\t19h30 - 22h", "12h - 14h\t19h30 - 22h","12h - 14h\t19h30 - 22h","12h - 14h\t19h30 - 22h", "19h30 - 22h", "Fermé");
+                    phoneNumber = "0214405154";
                 }
 
                 break;
@@ -138,6 +145,7 @@ public class Restaurant {
                     pageNum = 7;
                     description = context.getResources().getStringArray(R.array.array_resto_cave_a_huitres)[1];
                     MySchedule = new Schedule("11h - 15h\t18h30 - 23h", 1);
+                    phoneNumber = "0231755865";
                 }
 
                 break;
@@ -154,6 +162,7 @@ public class Restaurant {
                     pageNum = 8;
                     description = context.getResources().getStringArray(R.array.array_resto_anouche)[1];
                     MySchedule = new Schedule("12h - 14h\t19h - 21h", "12h - 14h\t19h - 21h", "12h - 14h\t19h - 21h", "12h - 14h\t19h - 21h", "12h - 14h\t19h - 21h", "19h - 21h", "12h - 14h");
+                    phoneNumber = "0231475249";
                 }
 
                 break;
@@ -170,6 +179,7 @@ public class Restaurant {
                     pageNum = 9;
                     description = context.getResources().getStringArray(R.array.array_resto_burger_street)[1];
                     MySchedule = new Schedule("Fermé" , "12h - 23h", "12h - 23h", "12h - 23h", "12h - 23h", "12h - 23h", "Fermé");
+                    phoneNumber = "0613283410";
                 }
 
                 break;
@@ -186,6 +196,7 @@ public class Restaurant {
                     pageNum = 10;
                     description = context.getResources().getStringArray(R.array.array_resto_le_sans_gene)[1];
                     MySchedule = new Schedule("19h - 23h30", 1);
+                    phoneNumber = "0231937158";
                 }
 
                 break;
@@ -202,6 +213,7 @@ public class Restaurant {
                     pageNum = 11;
                     description = context.getResources().getStringArray(R.array.array_resto_mar)[1];
                     MySchedule = new Schedule("Fermé" , "12h - 23h", "12h - 23h", "12h - 23h", "12h - 23h", "12h - 23h", "Fermé");
+                    phoneNumber = "";
                 }
                 break;
 
@@ -216,8 +228,8 @@ public class Restaurant {
                     pageNum = xx;
                     name = context.getResources().getStringArray(R.array.array_resto_)[0];
                     description = context.getResources().getStringArray(R.array.array_resto_)[1];
-
                     MySchedule = new Schedule("Fermé" , "12h - 23h", "12h - 23h", "12h - 23h", "12h - 23h", "12h - 23h", "Fermé");
+                    phoneNumber = "";
                 }
                 break;*/
 
@@ -289,9 +301,11 @@ public class Restaurant {
         return imageView;
     }
 
-
     public Schedule getMySchedule() {
         return MySchedule;
     }
 
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
 }

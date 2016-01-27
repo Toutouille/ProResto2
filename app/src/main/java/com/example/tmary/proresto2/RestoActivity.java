@@ -1,6 +1,7 @@
 package com.example.tmary.proresto2;
 
 
+import android.Manifest;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.Fragment;
@@ -9,7 +10,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.support.v13.app.FragmentPagerAdapter;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
@@ -58,8 +62,8 @@ public class RestoActivity extends Activity {
         mViewPager.setAdapter(mSectionsPagerAdapter);
         mViewPager.setPageTransformer(true, new DepthPageTransformer());
 
-        //On récupère les données du Bundle
         int pageSelected = 0;
+        //On récupère les données du Bundle
         Bundle b = getIntent().getExtras();
         if (b != null) {
             // On récupère l'id du resto choisi
@@ -110,8 +114,10 @@ public class RestoActivity extends Activity {
             pageSelected = RestoChoisi.getPageNum();
             Log.v("RestoActivity.java", "OK");
         }
+
         // Pour sélectionner la bonne page
         mViewPager.setCurrentItem(pageSelected);
+        Log.v("RestoActivity:OnCreate", Integer.toString(pageSelected));
         setupActionBar();
 
     }
@@ -128,8 +134,29 @@ public class RestoActivity extends Activity {
     }
 
     public void onClickButtonMenu(View v){
-        Log.v("onClickButtonMenu", "OK");
-        Toast.makeText(this, "Affichage du Menu... ou pas!", Toast.LENGTH_SHORT).show();
+        Log.v("onClickButtonMenu", "Appel");
+        int pageSelected = mViewPager.getCurrentItem()+1;   // return the item number but begins at 0
+        Log.v("onClickButtonMenu", Integer.toString(pageSelected));
+        RestoChoisi = new Restaurant(this.getApplicationContext(), pageSelected, false);
+        String number = RestoChoisi.getPhoneNumber();
+        Log.v("onClickButtonMenu", number);
+        if (number != "")
+        {
+            int permissionCheck = ContextCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE);
+            if (permissionCheck == PackageManager.PERMISSION_GRANTED)
+            {
+                Toast.makeText(this, "Lancement de l'appel", Toast.LENGTH_SHORT).show();
+                Intent callIntent = new Intent(Intent.ACTION_CALL);
+                callIntent.setData(Uri.parse("tel:" + number));
+                startActivity(callIntent);
+            }
+        }
+        else
+        {
+            Toast.makeText(this, "Aucun numéro enregistré", Toast.LENGTH_SHORT).show();
+        }
+
+
     }
 
     public void onClickButtonReserver(View view) {

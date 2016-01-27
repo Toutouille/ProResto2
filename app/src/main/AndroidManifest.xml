@@ -8,6 +8,7 @@
          location permissions for the 'MyLocation' functionality. 
     -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
         android:allowBackup="true"
@@ -41,8 +42,8 @@
         <activity
             android:name=".RestoActivity"
             android:icon="@drawable/ic_resto"
-            android:label="@string/title_activity_resto"
-            android:configChanges="orientation|screenSize">
+            android:label="@string/title_activity_resto" >
+
         </activity>
         <activity
             android:name=".ReservationsActivity"
